@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817728A0D9E000EADCE4 /* FirebaseAuth.swift */; };
+		E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817928A0DCBA00EADCE4 /* ValidateAuth.swift */; };
+		E25E817C28A0E36600EADCE4 /* ErrorAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817B28A0E36600EADCE4 /* ErrorAuth.swift */; };
 		E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C028A0406C008F0C0C /* AppDelegate.swift */; };
 		E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C228A0406C008F0C0C /* SceneDelegate.swift */; };
 		E291E8C528A0406C008F0C0C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C428A0406C008F0C0C /* TaskListViewController.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E25E817728A0D9E000EADCE4 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
+		E25E817928A0DCBA00EADCE4 /* ValidateAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAuth.swift; sourceTree = "<group>"; };
+		E25E817B28A0E36600EADCE4 /* ErrorAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAuth.swift; sourceTree = "<group>"; };
 		E291E8BD28A0406C008F0C0C /* YoMarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoMarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E291E8C028A0406C008F0C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E291E8C228A0406C008F0C0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +57,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E25E817528A0D96D00EADCE4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E25E817628A0D98200EADCE4 /* Firebase */,
+				E25E817928A0DCBA00EADCE4 /* ValidateAuth.swift */,
+				E25E817B28A0E36600EADCE4 /* ErrorAuth.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E25E817628A0D98200EADCE4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E25E817728A0D9E000EADCE4 /* FirebaseAuth.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		E291E8B428A0406C008F0C0C = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +96,8 @@
 			children = (
 				E291E8D928A043A6008F0C0C /* Application */,
 				E291E8D728A04350008F0C0C /* Controllers */,
-				E291E8DC28A045CB008F0C0C /* UIKit */,
+				E25E817528A0D96D00EADCE4 /* Services */,
+				E291E8EA28A04BC1008F0C0C /* Extensions */,
 				E291E8D428A0427F008F0C0C /* Resources */,
 			);
 			path = YoMarks;
@@ -81,7 +106,6 @@
 		E291E8D428A0427F008F0C0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E291E8DA28A04497008F0C0C /* FontSetup.swift */,
 				E291E8C928A0406F008F0C0C /* Assets.xcassets */,
 				E291E8CB28A0406F008F0C0C /* LaunchScreen.storyboard */,
 				E291E8CE28A0406F008F0C0C /* Info.plist */,
@@ -122,6 +146,15 @@
 				E291E8DD28A045D3008F0C0C /* UILabel.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E291E8EA28A04BC1008F0C0C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E291E8DC28A045CB008F0C0C /* UIKit */,
+				E291E8DA28A04497008F0C0C /* FontSetup.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,10 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E291E8C528A0406C008F0C0C /* TaskListViewController.swift in Sources */,
+				E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */,
 				E291E8DB28A04497008F0C0C /* FontSetup.swift in Sources */,
 				E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */,
 				E291E8D628A042E5008F0C0C /* StartViewController.swift in Sources */,
+				E25E817C28A0E36600EADCE4 /* ErrorAuth.swift in Sources */,
 				E291E8DE28A045D3008F0C0C /* UILabel.swift in Sources */,
+				E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */,
 				E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
