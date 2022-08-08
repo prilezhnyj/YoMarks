@@ -9,11 +9,11 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    let greetingLabel = UILabel(text: "YoMarks", textColor: .black, font: FontSetup.bold(size: 50))
-    let descriptionLabel = UILabel(text: "Hello. This is «YoMarks». I'll let you always stay on the work wave and not forget anything!", textColor: .black, font: FontSetup.medium(size: 16))
+    private let greetingLabel = UILabel(text: "YoMarks", textColor: .black, font: FontSetup.bold(size: 50))
+    private let descriptionLabel = UILabel(text: "Hello. This is «YoMarks». I'll let you always stay on the work wave and not forget anything!", textColor: .black, font: FontSetup.medium(size: 16))
     
-    let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
-    let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
+    private let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
+    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
     
     private let signUpVC = SignUpViewController()
     private let signInVC = SignInViewController()
@@ -25,7 +25,7 @@ class StartViewController: UIViewController {
         setupTarget()
     }
 }
-
+// MARK: - Setup target and @objc functions
 extension StartViewController {
     private func setupTarget() {
         signUpButton.addTarget(self, action: #selector(signUpUser), for: .touchUpInside)

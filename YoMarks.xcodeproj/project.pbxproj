@@ -13,6 +13,8 @@
 		E25E817E28A0F16900EADCE4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817D28A0F16900EADCE4 /* UIButton.swift */; };
 		E25E818028A0FB7400EADCE4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817F28A0FB7400EADCE4 /* SignUpViewController.swift */; };
 		E25E818228A0FBEC00EADCE4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E818128A0FBEC00EADCE4 /* SignInViewController.swift */; };
+		E25E818428A1068900EADCE4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E818328A1068900EADCE4 /* UITextField.swift */; };
+		E25E818628A10AEA00EADCE4 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E818528A10AEA00EADCE4 /* UIStackView.swift */; };
 		E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C028A0406C008F0C0C /* AppDelegate.swift */; };
 		E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C228A0406C008F0C0C /* SceneDelegate.swift */; };
 		E291E8C528A0406C008F0C0C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291E8C428A0406C008F0C0C /* TaskListViewController.swift */; };
@@ -35,6 +37,8 @@
 		E25E817D28A0F16900EADCE4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		E25E817F28A0FB7400EADCE4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E25E818128A0FBEC00EADCE4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E25E818328A1068900EADCE4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		E25E818528A10AEA00EADCE4 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		E291E8BD28A0406C008F0C0C /* YoMarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoMarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E291E8C028A0406C008F0C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E291E8C228A0406C008F0C0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			children = (
 				E291E8DD28A045D3008F0C0C /* UILabel.swift */,
 				E25E817D28A0F16900EADCE4 /* UIButton.swift */,
+				E25E818328A1068900EADCE4 /* UITextField.swift */,
+				E25E818528A10AEA00EADCE4 /* UIStackView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -251,9 +257,11 @@
 				E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */,
 				E291E8DB28A04497008F0C0C /* FontSetup.swift in Sources */,
 				E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */,
+				E25E818428A1068900EADCE4 /* UITextField.swift in Sources */,
 				E291E8D628A042E5008F0C0C /* StartViewController.swift in Sources */,
 				E25E817E28A0F16900EADCE4 /* UIButton.swift in Sources */,
 				E25E817C28A0E36600EADCE4 /* ErrorAuth.swift in Sources */,
+				E25E818628A10AEA00EADCE4 /* UIStackView.swift in Sources */,
 				E25E818228A0FBEC00EADCE4 /* SignInViewController.swift in Sources */,
 				E291E8DE28A045D3008F0C0C /* UILabel.swift in Sources */,
 				E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */,
