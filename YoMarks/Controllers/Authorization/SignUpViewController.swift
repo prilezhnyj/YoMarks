@@ -9,7 +9,10 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    private let greetingLabel = UILabel(text: "Welcome", textColor: .black, font: FontSetup.bold(size: 50))
+    weak var delegate: AuthTransitionProtocol!
+    
+    // MARK: - UI-components
+    private let greetingLabel = UILabel(text: "Welcome", textColor: .black, font: FontSetup.bold(size: 46))
     private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks. With him, you will never miss an important meeting or forget to do any business.", textColor: .black, font: FontSetup.medium(size: 16))
     
     private let emailTextField = UITextField(placeholder: "Your email", isSecure: false, initialLetter: .none)
@@ -19,10 +22,32 @@ class SignUpViewController: UIViewController {
     private let signUpButton = UIButton(titleText: "Finish registration", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
     private let signInButton = UIButton(titleText: "Have an account? Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
     
+    // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
+        setupTarget()
+    }
+}
+
+//MARK: - Setup target and @objc functions
+extension SignUpViewController {
+    private func setupTarget() {
+        signUpButton.addTarget(self, action: #selector(finishRegistration), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(pushSignInVC), for: .touchUpInside)
+    }
+    
+    @objc private func finishRegistration() {
+        dismiss(animated: true) {
+            self.delegate.delegatePushTaskVC()
+        }
+    }
+    
+    @objc private func pushSignInVC() {
+        dismiss(animated: true) {
+            self.delegate.delegatePushSignInVC()
+        }
     }
 }
 

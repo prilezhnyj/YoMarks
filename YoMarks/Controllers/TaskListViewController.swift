@@ -8,11 +8,18 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .white
         title = "Welcome"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutAction))
+    }
+    
+    @objc private func logoutAction() {
+        dismiss(animated: true)
     }
 }
+
 
