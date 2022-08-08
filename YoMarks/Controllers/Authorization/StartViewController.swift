@@ -93,6 +93,5 @@ extension StartViewController {
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.widthAnchor.constraint(equalToConstant: 256),
             signUpButton.heightAnchor.constraint(equalToConstant: 48)])
-        
     }
 }

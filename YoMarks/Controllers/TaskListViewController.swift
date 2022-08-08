@@ -18,7 +18,9 @@ class TaskListViewController: UIViewController {
     }
     
     @objc private func logoutAction() {
-        dismiss(animated: true)
+        showAlert(with: "Attention", and: "Are you sure you want to exit the app?", okayButton: "Yes", cancelButton: "No") {
+            self.dismiss(animated: true)
+        }
     }
 }
 

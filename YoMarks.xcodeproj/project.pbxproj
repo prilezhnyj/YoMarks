@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E22B8B4928A144D300AEC4CB /* CreateNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B8B4828A144D300AEC4CB /* CreateNavigationController.swift */; };
+		E23A5B0E28A1551300A9E3DE /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A5B0D28A1551300A9E3DE /* UIAlertController.swift */; };
 		E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817728A0D9E000EADCE4 /* FirebaseAuth.swift */; };
 		E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817928A0DCBA00EADCE4 /* ValidateAuth.swift */; };
 		E25E817C28A0E36600EADCE4 /* ErrorAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E817B28A0E36600EADCE4 /* ErrorAuth.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		E22B8B4828A144D300AEC4CB /* CreateNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNavigationController.swift; sourceTree = "<group>"; };
+		E23A5B0D28A1551300A9E3DE /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		E25E817728A0D9E000EADCE4 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		E25E817928A0DCBA00EADCE4 /* ValidateAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateAuth.swift; sourceTree = "<group>"; };
 		E25E817B28A0E36600EADCE4 /* ErrorAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAuth.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				E25E817D28A0F16900EADCE4 /* UIButton.swift */,
 				E25E818328A1068900EADCE4 /* UITextField.swift */,
 				E25E818528A10AEA00EADCE4 /* UIStackView.swift */,
+				E23A5B0D28A1551300A9E3DE /* UIAlertController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				E291E8DE28A045D3008F0C0C /* UILabel.swift in Sources */,
 				E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */,
 				E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */,
+				E23A5B0E28A1551300A9E3DE /* UIAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
