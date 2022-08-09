@@ -11,5 +11,5 @@ import FirebaseAuth
 protocol AuthTransitionProtocol: AnyObject {
     func delegatePushSignUpVC()
     func delegatePushSignInVC()
-    func delegatePushTaskVC()
+    func delegatePushTaskVC(for user: User)
 }

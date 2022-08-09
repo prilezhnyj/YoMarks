@@ -38,8 +38,17 @@ extension SignInViewController {
     }
     
     @objc private func finishAuth() {
-        dismiss(animated: true) {
-            self.delegate?.delegatePushTaskVC()
+        FirebaseAuth.shared.signIn(email: emailTextField.text, password: passwordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Success", and: "User «\(user.email!)» successfully logged in.") {
+                    self.dismiss(animated: true) {
+                        self.delegate?.delegatePushTaskVC(for: user)
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
         }
     }
     

@@ -39,8 +39,17 @@ extension SignUpViewController {
     }
     
     @objc private func finishRegistration() {
-        dismiss(animated: true) {
-            self.delegate.delegatePushTaskVC()
+        FirebaseAuth.shared.singUp(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text) { result in
+            switch result {
+            case .success(let user):
+                self.showAlert(with: "Success", and: "User «\(user.email!)» has been successfully created.") {
+                    self.dismiss(animated: true) {
+                        self.delegate?.delegatePushTaskVC(for: user)
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(with: "Error", and: error.localizedDescription)
+            }
         }
     }
     

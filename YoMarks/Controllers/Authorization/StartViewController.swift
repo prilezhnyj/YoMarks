@@ -13,7 +13,6 @@ class StartViewController: UIViewController {
     // MARK: - ViewControllers and UI-components
     let signUpVC = SignUpViewController()
     let signInVC = SignInViewController()
-    let taskVC = TaskListViewController()
     
     private let greetingLabel = UILabel(text: "YoMarks", textColor: .black, font: FontSetup.bold(size: 46))
     private let descriptionLabel = UILabel(text: "Hello. This is «YoMarks». I'll let you always stay on the work wave and not forget anything!", textColor: .black, font: FontSetup.medium(size: 16))
@@ -59,7 +58,8 @@ extension StartViewController: AuthTransitionProtocol {
         present(signInVC, animated: true)
     }
     
-    func delegatePushTaskVC() {
+    func delegatePushTaskVC(for user: User) {
+        let taskVC = TaskListViewController(currentUser: user)
         let viewController = createNavigationController(viewController: taskVC)
         present(viewController, animated: true)
     }

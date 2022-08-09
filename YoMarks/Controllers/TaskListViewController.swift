@@ -6,22 +6,37 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TaskListViewController: UIViewController {
+    
+    private let currentUser: User
+    
+    let helloLabel = UILabel(text: "", textColor: .black, font: .systemFont(ofSize: 17))
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Welcome"
         
+        helloLabel.text = currentUser.email
+        
+        view.addSubview(helloLabel)
+        helloLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        helloLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutAction))
     }
     
-    @objc private func logoutAction() {
-        showAlert(with: "Attention", and: "Are you sure you want to exit the app?", okayButton: "Yes", cancelButton: "No") {
-            self.dismiss(animated: true)
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+
+    
+    @objc private func logoutAction() {}
 }
-
-
