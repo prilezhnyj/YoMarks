@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>717977607646-a0friq0t7s9phdqhr6b1igc13aa04bfo.apps.googleusercontent.com</string>
+	<string>90669628931-oc6r44dc9p9c75o42v7psvmrh5u7j6lr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.717977607646-a0friq0t7s9phdqhr6b1igc13aa04bfo</string>
+	<string>com.googleusercontent.apps.90669628931-oc6r44dc9p9c75o42v7psvmrh5u7j6lr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCQMNu0epqDhFOPpAlNarGPWxptqO34fiw</string>
+	<string>AIzaSyCKBNxxJbRgdETLBkQW_rxwLKiBF5jGIqk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>717977607646</string>
+	<string>90669628931</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.maxbotalov.YoMarks</string>
 	<key>PROJECT_ID</key>
-	<string>yomarks-2f68a</string>
+	<string>yomarks-5597a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>yomarks-2f68a.appspot.com</string>
+	<string>yomarks-5597a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:717977607646:ios:16000a79541a5f2542914f</string>
+	<string>1:90669628931:ios:cdbc4ec1bf49ac429b5836</string>
 </dict>
 </plist>

@@ -40,7 +40,15 @@ class FirebaseAuth {
                 completion(.failure(error!))
                 return
             }
-            completion(.success(user))
+            
+            FirestoreServices.shared.saveUser(email: email!, uid: user.uid) { result in
+                switch result {
+                case .success(_):
+                    completion(.success(user))
+                case .failure(_):
+                    completion(.failure(error?.localizedDescription as! Error))
+                }
+            }
         }
     }
     
@@ -67,6 +75,14 @@ class FirebaseAuth {
                 return
             }
             completion(.success(user))
+        }
+    }
+    
+    func signOut() {
+        do {
+            try auth.signOut()
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
 }
