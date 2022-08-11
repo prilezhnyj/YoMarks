@@ -6,15 +6,37 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    let auth = Auth.auth()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = StartViewController()
+        
+        guard let user = auth.currentUser else {
+            window.rootViewController = StartViewController()
+            window.overrideUserInterfaceStyle = .light
+            window.makeKeyAndVisible()
+            self.window = window
+            return
+        }
+        
+        FirestoreServices.shared.getUserData(user: user) { result in
+            switch result {
+            case .success(_):
+                let taskVC = createNavigationController(viewController: TaskListViewController(currentUser: user))
+                window.rootViewController = taskVC
+            case .failure(_):
+                window.rootViewController = StartViewController()
+            }
+        }
+        
+        window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
         self.window = window
     }

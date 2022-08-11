@@ -37,8 +37,11 @@ class TaskListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     @objc private func logoutAction() {
-        print("Выход из системы")
+        FirebaseAuth.shared.signOut {
+            self.showAlertTwoButton(with: "Attention", and: "Are you sure you want to log out of your account «\(currentUser.email!)»?", okayButton: "Exit", cancelButton: "Stay") {
+                self.dismiss(animated: true)
+            }
+        }
     }
 }

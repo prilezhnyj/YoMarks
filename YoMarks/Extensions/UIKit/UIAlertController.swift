@@ -16,4 +16,15 @@ extension UIViewController {
         alertController.addAction(okayAction)
         present(alertController, animated: true)
     }
+    
+    func showAlertTwoButton(with title: String, and message: String?, okayButton: String, cancelButton: String, complition: @escaping () -> Void = {}) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: okayButton, style: .default) { _ in
+            complition()
+        }
+        let cancelAction = UIAlertAction(title: cancelButton, style: .cancel)
+        alertController.addAction(okayAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
 }

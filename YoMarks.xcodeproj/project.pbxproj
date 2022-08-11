@@ -126,12 +126,12 @@
 		E291E8BF28A0406C008F0C0C /* YoMarks */ = {
 			isa = PBXGroup;
 			children = (
-				EC1394CB28A4D9A000BED003 /* Model */,
-				E2D0526428A12A81000F2363 /* Protocols */,
 				E291E8D928A043A6008F0C0C /* Application */,
+				EC1394CB28A4D9A000BED003 /* Model */,
 				E291E8D728A04350008F0C0C /* Controllers */,
-				E25E817528A0D96D00EADCE4 /* Services */,
 				E291E8EA28A04BC1008F0C0C /* Extensions */,
+				E2D0526428A12A81000F2363 /* Protocols */,
+				E25E817528A0D96D00EADCE4 /* Services */,
 				E291E8D428A0427F008F0C0C /* Resources */,
 			);
 			path = YoMarks;

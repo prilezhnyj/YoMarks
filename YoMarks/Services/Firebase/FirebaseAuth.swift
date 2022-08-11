@@ -78,9 +78,10 @@ class FirebaseAuth {
         }
     }
     
-    func signOut() {
+    func signOut(completion: () -> Void) {
         do {
             try auth.signOut()
+            completion()
         } catch let error as NSError {
             print(error.localizedDescription)
         }
