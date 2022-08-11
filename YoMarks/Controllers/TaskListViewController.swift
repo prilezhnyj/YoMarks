@@ -38,5 +38,7 @@ class TaskListViewController: UIViewController {
     }
 
     
-    @objc private func logoutAction() {}
+    @objc private func logoutAction() {
+        print("Выход из системы")
+    }
 }
