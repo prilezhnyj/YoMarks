@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DescriptionTaskViewController: UIViewController {
+class NewTaskViewController: UIViewController {
     
     weak var delegate: SaveTaskProtocol?
     
@@ -40,7 +40,7 @@ class DescriptionTaskViewController: UIViewController {
 }
 
 // MARK: - Setup target and @objc functions
-extension DescriptionTaskViewController {
+extension NewTaskViewController {
     @objc private func saveNewTask() {
         guard titleTextField.text != "" else {
             print("The header field is empty")
@@ -53,7 +53,7 @@ extension DescriptionTaskViewController {
 }
 
 // MARK: - Setting up constraints and auto layout
-extension DescriptionTaskViewController {
+extension NewTaskViewController {
     private func setupConstraints() {
         let titleStackView = UIStackView(arrangedSubviews: [titleLabel, titleTextField, footTitleLabel], distribution: .equalSpacing, axis: .vertical, spacing: 5)
         let descriptionStackView = UIStackView(arrangedSubviews: [descriptionLabel, descriptionTextField, footDescriptionLabel], distribution: .equalSpacing, axis: .vertical, spacing: 5)

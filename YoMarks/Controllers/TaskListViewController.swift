@@ -15,7 +15,7 @@ class TaskListViewController: UIViewController {
     private var tasks = [TaskModel]()
     
     // MARK: ViewControllers and UI-components
-    private let editTaskVC = DescriptionTaskViewController()
+    private let newTaskVC = NewTaskViewController()
     private let searchController = UISearchController()
     private let taskTableView = UITableView(backgroundColor: ColorSetup.background(), separatorColor: .clear)
     private var categoriesCollectionView: UICollectionView!
@@ -39,19 +39,19 @@ class TaskListViewController: UIViewController {
         setupTableView()
         setupShearchBar()
         
-        editTaskVC.delegate = self
+        newTaskVC.delegate = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: currentUser.email, style: .plain, target: self, action: #selector(userInfo))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNewTask))
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(1)) {
-            self.getTasts()
+            self.getTasks()
         }
     }
     
     // MARK: Getting data from the «Firebase» database
-    private func getTasts() {
+    private func getTasks() {
         FirestoreServices.shared.getData(user: currentUser) { result in
             switch result {
             case .success(let data):
@@ -134,7 +134,7 @@ extension TaskListViewController {
     }
     
     @objc private func addNewTask() {
-        present(editTaskVC, animated: true)
+        present(newTaskVC, animated: true)
     }
 }
 
@@ -144,11 +144,10 @@ extension TaskListViewController: SaveTaskProtocol {
         FirestoreServices.shared.addData(user: currentUser, title: title, description: description) { result in
             switch result {
             case .success(_):
-                print("Успех")
-                self.getTasts()
+                self.getTasks()
                 self.taskTableView.reloadData()
-            case .failure(_):
-                print("Ошибка")
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -214,7 +213,6 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //        navigationController?.pushViewController(descVC, animated: true)
     }
 }
 

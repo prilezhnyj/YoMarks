@@ -47,7 +47,7 @@
 		ECF7F4A828A64C8300BAEE7C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A728A64C8300BAEE7C /* UITableView.swift */; };
 		ECF7F4AA28A64F5A00BAEE7C /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */; };
 		ECF7F4AE28A65B9300BAEE7C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4AD28A65B9300BAEE7C /* CategoryCell.swift */; };
-		ECF7F4B028A666A300BAEE7C /* DescriptionTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */; };
+		ECF7F4B028A666A300BAEE7C /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4AF28A666A300BAEE7C /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +85,7 @@
 		ECF7F4A728A64C8300BAEE7C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		ECF7F4AD28A65B9300BAEE7C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
-		ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTaskViewController.swift; sourceTree = "<group>"; };
+		ECF7F4AF28A666A300BAEE7C /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 			children = (
 				E291E8D828A04360008F0C0C /* Authorization */,
 				E291E8C428A0406C008F0C0C /* TaskListViewController.swift */,
-				ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */,
+				ECF7F4AF28A666A300BAEE7C /* NewTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */,
 				E25E818428A1068900EADCE4 /* UITextField.swift in Sources */,
 				E22B8B4928A144D300AEC4CB /* CreateNavigationController.swift in Sources */,
-				ECF7F4B028A666A300BAEE7C /* DescriptionTaskViewController.swift in Sources */,
+				ECF7F4B028A666A300BAEE7C /* NewTaskViewController.swift in Sources */,
 				EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */,
 				ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */,
 				ECF7F4A828A64C8300BAEE7C /* UITableView.swift in Sources */,
