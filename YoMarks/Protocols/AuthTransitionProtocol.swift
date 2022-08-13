@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 
+// Protocol for more convenient and intelligent navigation between authorization controllers.
 protocol AuthTransitionProtocol: AnyObject {
     func delegatePushSignUpVC()
     func delegatePushSignInVC()

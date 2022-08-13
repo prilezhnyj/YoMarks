@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class StartViewController: UIViewController {
     
-    // MARK: - ViewControllers and UI-components
+    // MARK: ViewControllers and UI-components
     let signUpVC = SignUpViewController()
     let signInVC = SignInViewController()
     

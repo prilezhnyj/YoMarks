@@ -38,6 +38,16 @@
 		EC1394CF28A4DA5C00BED003 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */; };
 		EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */; };
 		EC1394D328A4DE4600BED003 /* ErrorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D228A4DE4600BED003 /* ErrorUser.swift */; };
+		ECAD5F0428A51A0200FA59F9 /* TaskMaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */; };
+		ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46328A6D57F00A25B1A /* TaskModel.swift */; };
+		ECD7A46628A6ED5200A25B1A /* SaveTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */; };
+		ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */; };
+		ECF7F4A428A54FF400BAEE7C /* ColorSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */; };
+		ECF7F4A628A562D100BAEE7C /* TaskMinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */; };
+		ECF7F4A828A64C8300BAEE7C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A728A64C8300BAEE7C /* UITableView.swift */; };
+		ECF7F4AA28A64F5A00BAEE7C /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */; };
+		ECF7F4AE28A65B9300BAEE7C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4AD28A65B9300BAEE7C /* CategoryCell.swift */; };
+		ECF7F4B028A666A300BAEE7C /* DescriptionTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +76,16 @@
 		EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestore.swift; sourceTree = "<group>"; };
 		EC1394D228A4DE4600BED003 /* ErrorUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUser.swift; sourceTree = "<group>"; };
+		ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMaxCell.swift; sourceTree = "<group>"; };
+		ECD7A46328A6D57F00A25B1A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTaskProtocol.swift; sourceTree = "<group>"; };
+		ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetup.swift; sourceTree = "<group>"; };
+		ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMinCell.swift; sourceTree = "<group>"; };
+		ECF7F4A728A64C8300BAEE7C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		ECF7F4AD28A65B9300BAEE7C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +146,7 @@
 		E291E8BF28A0406C008F0C0C /* YoMarks */ = {
 			isa = PBXGroup;
 			children = (
+				ECAD5F0228A519F300FA59F9 /* View */,
 				E291E8D928A043A6008F0C0C /* Application */,
 				EC1394CB28A4D9A000BED003 /* Model */,
 				E291E8D728A04350008F0C0C /* Controllers */,
@@ -153,6 +174,7 @@
 			children = (
 				E291E8D828A04360008F0C0C /* Authorization */,
 				E291E8C428A0406C008F0C0C /* TaskListViewController.swift */,
+				ECF7F4AF28A666A300BAEE7C /* DescriptionTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +206,9 @@
 				E25E818328A1068900EADCE4 /* UITextField.swift */,
 				E25E818528A10AEA00EADCE4 /* UIStackView.swift */,
 				E23A5B0D28A1551300A9E3DE /* UIAlertController.swift */,
+				ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */,
+				ECF7F4A728A64C8300BAEE7C /* UITableView.swift */,
+				ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -193,6 +218,7 @@
 			children = (
 				E291E8DC28A045CB008F0C0C /* UIKit */,
 				E291E8DA28A04497008F0C0C /* FontSetup.swift */,
+				ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */,
 				E22B8B4828A144D300AEC4CB /* CreateNavigationController.swift */,
 			);
 			path = Extensions;
@@ -202,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D0526528A12AB9000F2363 /* AuthTransitionProtocol.swift */,
+				ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -210,8 +237,35 @@
 			isa = PBXGroup;
 			children = (
 				EC1394CC28A4D9AB00BED003 /* UserModel.swift */,
+				ECD7A46328A6D57F00A25B1A /* TaskModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ECAD5F0228A519F300FA59F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECF7F4AC28A65B7500BAEE7C /* CollectionView */,
+				ECF7F4AB28A65B6D00BAEE7C /* TableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECF7F4AB28A65B6D00BAEE7C /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */,
+				ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		ECF7F4AC28A65B7500BAEE7C /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				ECF7F4AD28A65B9300BAEE7C /* CategoryCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,22 +354,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				E25E818028A0FB7400EADCE4 /* SignUpViewController.swift in Sources */,
+				ECD7A46628A6ED5200A25B1A /* SaveTaskProtocol.swift in Sources */,
+				ECAD5F0428A51A0200FA59F9 /* TaskMaxCell.swift in Sources */,
 				E291E8C528A0406C008F0C0C /* TaskListViewController.swift in Sources */,
+				ECF7F4A628A562D100BAEE7C /* TaskMinCell.swift in Sources */,
 				E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */,
 				EC1394D328A4DE4600BED003 /* ErrorUser.swift in Sources */,
+				ECF7F4AA28A64F5A00BAEE7C /* UICollectionView.swift in Sources */,
 				E291E8DB28A04497008F0C0C /* FontSetup.swift in Sources */,
 				E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */,
+				ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */,
 				E25E818428A1068900EADCE4 /* UITextField.swift in Sources */,
 				E22B8B4928A144D300AEC4CB /* CreateNavigationController.swift in Sources */,
+				ECF7F4B028A666A300BAEE7C /* DescriptionTaskViewController.swift in Sources */,
 				EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */,
+				ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */,
+				ECF7F4A828A64C8300BAEE7C /* UITableView.swift in Sources */,
 				E291E8D628A042E5008F0C0C /* StartViewController.swift in Sources */,
 				E25E817E28A0F16900EADCE4 /* UIButton.swift in Sources */,
 				E2D0526628A12AB9000F2363 /* AuthTransitionProtocol.swift in Sources */,
+				ECF7F4A428A54FF400BAEE7C /* ColorSetup.swift in Sources */,
 				E25E817C28A0E36600EADCE4 /* ErrorAuth.swift in Sources */,
 				E25E818628A10AEA00EADCE4 /* UIStackView.swift in Sources */,
 				E25E818228A0FBEC00EADCE4 /* SignInViewController.swift in Sources */,
 				E291E8DE28A045D3008F0C0C /* UILabel.swift in Sources */,
 				E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */,
+				ECF7F4AE28A65B9300BAEE7C /* CategoryCell.swift in Sources */,
 				E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */,
 				EC1394CD28A4D9AB00BED003 /* UserModel.swift in Sources */,
 				E23A5B0E28A1551300A9E3DE /* UIAlertController.swift in Sources */,

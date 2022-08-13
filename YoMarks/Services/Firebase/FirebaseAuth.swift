@@ -10,7 +10,6 @@ import FirebaseAuth
 
 class FirebaseAuth {
     static let shared = FirebaseAuth()
-    
     private let auth = Auth.auth()
     
     func singUp(email: String?, password: String?, repeatPassword: String?, completion: @escaping (Result<User, Error>) -> Void) {

@@ -11,7 +11,7 @@ class SignUpViewController: UIViewController {
     
     weak var delegate: AuthTransitionProtocol!
     
-    // MARK: - UI-components
+    // MARK: UI-components
     private let greetingLabel = UILabel(text: "Welcome", textColor: .black, font: FontSetup.bold(size: 46))
     private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks. With him, you will never miss an important meeting or forget to do any business.", textColor: .black, font: FontSetup.medium(size: 16))
     

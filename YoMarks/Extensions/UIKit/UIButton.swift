@@ -12,7 +12,6 @@ extension UIButton {
         self.init(type: .system)
         self.setTitle(titleText, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
-//        self.titleLabel?.font = titleFont
         self.backgroundColor = backgroundColor
         self.layer.cornerRadius = cornerRadius
         self.translatesAutoresizingMaskIntoConstraints = false
