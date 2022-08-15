@@ -41,6 +41,8 @@
 		ECAD5F0428A51A0200FA59F9 /* TaskMaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */; };
 		ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46328A6D57F00A25B1A /* TaskModel.swift */; };
 		ECD7A46628A6ED5200A25B1A /* SaveTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */; };
+		ECD7A46928A83C0800A25B1A /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */; };
+		ECD7A46B28A8421E00A25B1A /* UpdatingTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46A28A8421E00A25B1A /* UpdatingTaskProtocol.swift */; };
 		ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */; };
 		ECF7F4A428A54FF400BAEE7C /* ColorSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */; };
 		ECF7F4A628A562D100BAEE7C /* TaskMinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */; };
@@ -79,6 +81,8 @@
 		ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMaxCell.swift; sourceTree = "<group>"; };
 		ECD7A46328A6D57F00A25B1A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTaskProtocol.swift; sourceTree = "<group>"; };
+		ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		ECD7A46A28A8421E00A25B1A /* UpdatingTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingTaskProtocol.swift; sourceTree = "<group>"; };
 		ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetup.swift; sourceTree = "<group>"; };
 		ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMinCell.swift; sourceTree = "<group>"; };
@@ -146,9 +150,9 @@
 		E291E8BF28A0406C008F0C0C /* YoMarks */ = {
 			isa = PBXGroup;
 			children = (
-				ECAD5F0228A519F300FA59F9 /* View */,
 				E291E8D928A043A6008F0C0C /* Application */,
 				EC1394CB28A4D9A000BED003 /* Model */,
+				ECAD5F0228A519F300FA59F9 /* View */,
 				E291E8D728A04350008F0C0C /* Controllers */,
 				E291E8EA28A04BC1008F0C0C /* Extensions */,
 				E2D0526428A12A81000F2363 /* Protocols */,
@@ -173,8 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				E291E8D828A04360008F0C0C /* Authorization */,
-				E291E8C428A0406C008F0C0C /* TaskListViewController.swift */,
-				ECF7F4AF28A666A300BAEE7C /* NewTaskViewController.swift */,
+				ECD7A46728A83BE300A25B1A /* Task */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			children = (
 				E2D0526528A12AB9000F2363 /* AuthTransitionProtocol.swift */,
 				ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */,
+				ECD7A46A28A8421E00A25B1A /* UpdatingTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -249,6 +253,16 @@
 				ECF7F4AB28A65B6D00BAEE7C /* TableView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ECD7A46728A83BE300A25B1A /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				E291E8C428A0406C008F0C0C /* TaskListViewController.swift */,
+				ECF7F4AF28A666A300BAEE7C /* NewTaskViewController.swift */,
+				ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */,
+			);
+			path = Task;
 			sourceTree = "<group>";
 		};
 		ECF7F4AB28A65B6D00BAEE7C /* TableView */ = {
@@ -366,6 +380,7 @@
 				ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */,
 				E25E818428A1068900EADCE4 /* UITextField.swift in Sources */,
 				E22B8B4928A144D300AEC4CB /* CreateNavigationController.swift in Sources */,
+				ECD7A46B28A8421E00A25B1A /* UpdatingTaskProtocol.swift in Sources */,
 				ECF7F4B028A666A300BAEE7C /* NewTaskViewController.swift in Sources */,
 				EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */,
 				ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */,
@@ -381,6 +396,7 @@
 				E25E817828A0D9E000EADCE4 /* FirebaseAuth.swift in Sources */,
 				ECF7F4AE28A65B9300BAEE7C /* CategoryCell.swift in Sources */,
 				E291E8C328A0406C008F0C0C /* SceneDelegate.swift in Sources */,
+				ECD7A46928A83C0800A25B1A /* EditTaskViewController.swift in Sources */,
 				EC1394CD28A4D9AB00BED003 /* UserModel.swift in Sources */,
 				E23A5B0E28A1551300A9E3DE /* UIAlertController.swift in Sources */,
 			);

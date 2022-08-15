@@ -12,6 +12,7 @@ import FirebaseAuth
 struct TaskModel: Codable {
     let title: String
     let description: String
+    var id = UUID().uuidString
     
     var representation: [String: Any] {
         var rep = ["title": title]

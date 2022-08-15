@@ -20,6 +20,7 @@ class FirestoreServices {
         return db.collection("users")
     }
     
+    // Done. Works correctly
     func saveUser(email: String, uid: String, completion: @escaping (Result<UsersModel, Error>) -> Void) {
         let userModel = UsersModel(email: email, uid: uid)
         usersRef.document(userModel.uid).setData(userModel.representation) { error in
@@ -31,6 +32,7 @@ class FirestoreServices {
         }
     }
     
+    // Done. Works correctly
     func getUserData(user: User, complition: @escaping (Result<UsersModel, Error>) -> Void) {
         let docRef = db.collection("users").document(user.uid)
         docRef.getDocument { document, error in
@@ -46,10 +48,10 @@ class FirestoreServices {
         }
     }
     
+    // Done. Works correctly
     func addData(user: User, title: String, description: String, completion: @escaping (Result<TaskModel, Error>) -> Void) {
         let taskModel = TaskModel(title: title, description: description)
-        
-        usersRef.document(user.uid).collection("tasks").document(taskModel.title).setData(taskModel.representation) { error in
+        usersRef.document(user.uid).collection("tasks").document(taskModel.id).setData(taskModel.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -58,7 +60,8 @@ class FirestoreServices {
         }
     }
     
-    func getData(user: User, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
+    // Done. Works correctly
+    func allGetData(user: User, completion: @escaping (Result<[TaskModel], Error>) -> Void) {
         usersRef.document(user.uid).collection("tasks").getDocuments { snapshot, error in
             var tasksArray = [TaskModel]()
             if let error = error {
@@ -76,8 +79,34 @@ class FirestoreServices {
         }
     }
     
-    func deleteData(user: User, title: String, completion: @escaping (Bool) -> Void) {
-        usersRef.document(user.uid).collection("tasks").document(title).delete { error in
+    //    func getData(user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+    //        usersRef.document(user.uid).collection("tasks").document(task.id).getDocument { document, error in
+    //            if let document = document, document.exists {
+    //                let data = document.data()
+    //
+    //                let title = data!["title"] as! String
+    //                let description = data!["description"] as! String
+    //
+    //                let taskModel = TaskModel(title: title, description: description)
+    //                completion(.success(taskModel))
+    //            }
+    //        }
+    //    }
+    
+    func updatingData(user: User, title: String, description: String, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+        let task = TaskModel(title: title, description: description)
+        usersRef.document(title).updateData(["title": true, "description": true]) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                completion(.success(task))
+            }
+        }
+    }
+    
+    // Добработать. Неверный путь и достучаться через uid
+    func deleteData(user: User, task: TaskModel, completion: @escaping (Bool) -> Void) {
+        usersRef.document(user.uid).collection("tasks").document(task.id).delete { error in
             if let error = error {
                 print(error.localizedDescription)
                 completion(false)

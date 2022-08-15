@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             return
         }
-        
+
         FirestoreServices.shared.getUserData(user: user) { result in
             switch result {
             case .success(_):
