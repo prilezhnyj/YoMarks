@@ -26,6 +26,7 @@ class EditTaskViewController: UIViewController {
     private let descriptionTextField = UITextField(placeholder: "", isSecure: false)
     
     private let saveButton = UIButton(titleText: "Save", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
+    private let deleteButton = UIButton(titleText: "Delete", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .red, isBorder: false, cornerRadius: 10, isShadow: true)
     
     // MARK: Custom Initializer
     init(user: User, task: TaskModel) {
@@ -45,6 +46,7 @@ class EditTaskViewController: UIViewController {
         descriptionTextField.text = task.description
         
         saveButton.addTarget(self, action: #selector(saveEditTask), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteTask), for: .touchUpInside)
     }
     
     // MARK: Required initializer
@@ -71,6 +73,16 @@ extension EditTaskViewController {
             }
         }
     }
+    
+    @objc private func deleteTask() {
+        FirestoreServices.shared.deleteData(user: user, task: task) { chek in
+            if chek == true {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+    
+    
 }
 
 // MARK: - Setting up constraints and auto layout
@@ -92,5 +104,12 @@ extension EditTaskViewController {
             saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             saveButton.widthAnchor.constraint(equalToConstant: 256),
             saveButton.heightAnchor.constraint(equalToConstant: 48)])
+        
+        view.addSubview(deleteButton)
+        NSLayoutConstraint.activate([
+            deleteButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 20),
+            deleteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            deleteButton.widthAnchor.constraint(equalToConstant: 256),
+            deleteButton.heightAnchor.constraint(equalToConstant: 48)])
     }
 }
