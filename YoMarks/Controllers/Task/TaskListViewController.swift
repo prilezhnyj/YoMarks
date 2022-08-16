@@ -28,10 +28,11 @@ class TaskListViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(currentUser.email!)
         title = "Welcome"
         view.backgroundColor = ColorSetup.background()
         navigationItem.backButtonTitle = "Back"
+        
+        userUpload()
         
         setupConstraints()
         setupShearchBar()
@@ -46,6 +47,15 @@ class TaskListViewController: UIViewController {
             self.getAllTasks()
             self.taskTableView.reloadData()
         }
+    }
+    
+    // MARK: User upload
+    private func userUpload() {
+        print("-------------------------------------------------------------------------")
+        print("The application has been successfully downloaded. The user data is below.")
+        print("User email: \(currentUser.email!)")
+        print("User id: \(currentUser.uid)")
+        print("-------------------------------------------------------------------------")
     }
     
     // MARK: Getting data from the «Firebase» database
@@ -115,7 +125,8 @@ extension TaskListViewController: SaveTaskProtocol {
     func saveTask(title: String, description: String) {
         FirestoreServices.shared.addData(user: currentUser, title: title, description: description) { result in
             switch result {
-            case .success(_):
+            case .success(let data):
+                print(data)
                 self.getAllTasks()
                 self.taskTableView.reloadData()
             case .failure(let error):
@@ -154,6 +165,8 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let task = tasksArray[indexPath.row]
+        print(task.id)
     }
 }
 

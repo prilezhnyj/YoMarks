@@ -10,13 +10,14 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct TaskModel: Codable {
-    let title: String
-    let description: String
-    var id = UUID().uuidString
+    var title: String
+    var description: String
+    var id: String
     
     var representation: [String: Any] {
         var rep = ["title": title]
         rep["description"] = description
+        rep["id"] = id
         return rep
     }
 }

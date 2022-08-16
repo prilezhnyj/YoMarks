@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirestoreServices {
     private init() {}
@@ -48,9 +49,11 @@ class FirestoreServices {
         }
     }
     
+    // MARK: - FIRESTORE DATA
+    
     // Done. Works correctly
     func addData(user: User, title: String, description: String, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-        let taskModel = TaskModel(title: title, description: description)
+        let taskModel = TaskModel(title: title, description: description, id: UUID().uuidString)
         usersRef.document(user.uid).collection("tasks").document(taskModel.id).setData(taskModel.representation) { error in
             if let error = error {
                 completion(.failure(error))
@@ -71,7 +74,8 @@ class FirestoreServices {
                     let data = document.data()
                     let title = data["title"] as! String
                     let description = data["description"] as! String
-                    let task = TaskModel(title: title, description: description)
+                    let id = data["id"] as! String
+                    let task = TaskModel(title: title, description: description, id: id)
                     tasksArray.append(task)
                 }
                 completion(.success(tasksArray))
@@ -79,26 +83,28 @@ class FirestoreServices {
         }
     }
     
-    //    func getData(user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-    //        usersRef.document(user.uid).collection("tasks").document(task.id).getDocument { document, error in
-    //            if let document = document, document.exists {
-    //                let data = document.data()
-    //
-    //                let title = data!["title"] as! String
-    //                let description = data!["description"] as! String
-    //
-    //                let taskModel = TaskModel(title: title, description: description)
-    //                completion(.success(taskModel))
-    //            }
-    //        }
-    //    }
+    func getData(user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+        usersRef.document(user.uid).collection("tasks").document(task.id).getDocument { document, error in
+            if let document = document, document.exists {
+                let data = document.data()
+                
+                let title = data!["title"] as! String
+                let description = data!["description"] as! String
+                let id = data!["id"] as! String
+                
+                let taskModel = TaskModel(title: title, description: description, id: id)
+                completion(.success(taskModel))
+            }
+        }
+    }
     
-    func updatingData(user: User, title: String, description: String, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-        let task = TaskModel(title: title, description: description)
-        usersRef.document(title).updateData(["title": true, "description": true]) { error in
+    func updatingData(title: String, description: String, user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+        usersRef.document(user.uid).collection("tasks").document(task.title).updateData(["title": title, "description": description]) { error in
             if let error = error {
                 print(error.localizedDescription)
+                completion(.failure(error))
             } else {
+                print(task)
                 completion(.success(task))
             }
         }
