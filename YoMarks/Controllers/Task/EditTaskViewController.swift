@@ -13,8 +13,8 @@ class EditTaskViewController: UIViewController {
     // MARK: Property
     weak var delegate: UpdatingTaskProtocol?
     
-    var titleTrans = ""
-    var descriptionTrans = ""
+    private var user: User
+    private var task = TaskModel(title: "", description: "", id: "")
     
     // MARK: UI-components
     private let titleLabel = UILabel(text: "Heading", textColor: .black, font: FontSetup.bold(size: 17))
@@ -27,6 +27,13 @@ class EditTaskViewController: UIViewController {
     
     private let saveButton = UIButton(titleText: "Save", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
     
+    // MARK: Custom Initializer
+    init(user: User, task: TaskModel) {
+        self.user = user
+        self.task = task
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +41,15 @@ class EditTaskViewController: UIViewController {
         title = "Editing a task"
         setupConstraints()
         
+        titleTextField.text = task.title
+        descriptionTextField.text = task.description
+        
         saveButton.addTarget(self, action: #selector(saveEditTask), for: .touchUpInside)
+    }
+    
+    // MARK: Required initializer
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -44,6 +59,16 @@ extension EditTaskViewController {
         guard titleTextField.text != "" else {
             print("The header field is empty")
             return
+        }
+        FirestoreServices.shared.updatingData(title: titleTextField.text!, description: descriptionTextField.text!, user: user, task: task) { result in
+            switch result {
+                
+            case .success(let data):
+                print(data)
+                self.navigationController?.popViewController(animated: true)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }

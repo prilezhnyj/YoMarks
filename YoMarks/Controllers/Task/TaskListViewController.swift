@@ -49,6 +49,14 @@ class TaskListViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(1)) {
+            self.getAllTasks()
+            self.taskTableView.reloadData()
+        }
+    }
+    
     // MARK: User upload
     private func userUpload() {
         print("-------------------------------------------------------------------------")
@@ -166,7 +174,8 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let task = tasksArray[indexPath.row]
-        print(task.id)
+        let editTaskVC = EditTaskViewController(user: currentUser, task: task)
+        navigationController?.pushViewController(editTaskVC, animated: true)
     }
 }
 

@@ -21,6 +21,8 @@ class FirestoreServices {
         return db.collection("users")
     }
     
+    // MARK: - Authentication user
+    
     // Done. Works correctly
     func saveUser(email: String, uid: String, completion: @escaping (Result<UsersModel, Error>) -> Void) {
         let userModel = UsersModel(email: email, uid: uid)
@@ -49,7 +51,7 @@ class FirestoreServices {
         }
     }
     
-    // MARK: - FIRESTORE DATA
+    // MARK: - Firestore data
     
     // Done. Works correctly
     func addData(user: User, title: String, description: String, completion: @escaping (Result<TaskModel, Error>) -> Void) {
@@ -83,14 +85,18 @@ class FirestoreServices {
         }
     }
     
+    // Done. Works correctly
     func getData(user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
         usersRef.document(user.uid).collection("tasks").document(task.id).getDocument { document, error in
             if let document = document, document.exists {
-                let data = document.data()
+                guard let data = document.data() else {
+                    print("ERROR")
+                    return
+                }
                 
-                let title = data!["title"] as! String
-                let description = data!["description"] as! String
-                let id = data!["id"] as! String
+                let title = data["title"] as! String
+                let description = data["description"] as! String
+                let id = data["id"] as! String
                 
                 let taskModel = TaskModel(title: title, description: description, id: id)
                 completion(.success(taskModel))
@@ -98,19 +104,19 @@ class FirestoreServices {
         }
     }
     
+    // Done. Works correctly
     func updatingData(title: String, description: String, user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
-        usersRef.document(user.uid).collection("tasks").document(task.title).updateData(["title": title, "description": description]) { error in
+        let updateTask = TaskModel(title: title, description: description, id: task.id)
+        usersRef.document(user.uid).collection("tasks").document(updateTask.id).updateData(updateTask.representation) { error in
             if let error = error {
-                print(error.localizedDescription)
                 completion(.failure(error))
             } else {
-                print(task)
-                completion(.success(task))
+                completion(.success(updateTask))
             }
         }
     }
     
-    // Добработать. Неверный путь и достучаться через uid
+    // Done. Works correctly
     func deleteData(user: User, task: TaskModel, completion: @escaping (Bool) -> Void) {
         usersRef.document(user.uid).collection("tasks").document(task.id).delete { error in
             if let error = error {
