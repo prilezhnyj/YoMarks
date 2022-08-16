@@ -13,6 +13,7 @@ class TaskListViewController: UIViewController {
     // MARK: Property
     private let currentUser: User
     private var tasksArray = [TaskModel]()
+    private let refreshControl = UIRefreshControl()
     
     // MARK: ViewControllers and UI-components
     private let newTaskVC = NewTaskViewController()
@@ -28,17 +29,20 @@ class TaskListViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Welcome"
+        title = "👋🏻 Welcome"
         view.backgroundColor = ColorSetup.background()
         navigationItem.backButtonTitle = "Back"
         
         userUpload()
+        addTarget()
         
         setupConstraints()
         setupShearchBar()
         setupTableView()
         
         newTaskVC.delegate = self
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Update tasks")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: currentUser.email, style: .plain, target: self, action: #selector(userInfo))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNewTask))
@@ -51,6 +55,7 @@ class TaskListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(1)) {
             self.getAllTasks()
             self.taskTableView.reloadData()
@@ -101,6 +106,7 @@ extension TaskListViewController: UISearchBarDelegate {
 // MARK: - Setup TaskTableView
 extension TaskListViewController {
     private func setupTableView() {
+        taskTableView.refreshControl = refreshControl
         taskTableView.delegate = self
         taskTableView.dataSource = self
         taskTableView.register(TaskMaxCell.self, forCellReuseIdentifier: TaskMaxCell.cellID)
@@ -110,6 +116,10 @@ extension TaskListViewController {
 
 // MARK: - Setup target and @objc functions
 extension TaskListViewController {
+    private func addTarget() {
+        refreshControl.addTarget(self, action: #selector(updateTableView), for: .valueChanged)
+    }
+    
     @objc private func userInfo() {
         let alertController = UIAlertController(title: "User Information", message: "You are logged in under the user \(currentUser.email!). Do you want to log out or continue using the app?", preferredStyle: .alert)
         let exitAction = UIAlertAction(title: "Exit", style: .destructive) { _ in
@@ -124,7 +134,14 @@ extension TaskListViewController {
     }
     
     @objc private func addNewTask() {
-        present(newTaskVC, animated: true)
+        let vc = createNavigationControllerModalPresent(viewController: newTaskVC)
+        present(vc, animated: true)
+    }
+    
+    @objc private func updateTableView() {
+        getAllTasks()
+        taskTableView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -167,7 +184,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let task = tasksArray[indexPath.row]
         
-        guard task.description == "" else { return 90 }
+        guard task.description == "" else { return 86 }
         return 56
     }
     

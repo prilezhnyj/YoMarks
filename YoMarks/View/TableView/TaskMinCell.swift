@@ -13,7 +13,7 @@ class TaskMinCell: UITableViewCell {
     static let cellID = "TaskMinCell"
     
     // MARK: Cell UI-components
-    private let titleLabel = UILabel(text: "Heading", textColor: .black, font: FontSetup.bold(size: 20))
+    private let titleLabel = UILabel(text: "", textColor: .black, font: FontSetup.bold(size: 17))
     
     private let borderView: UIView = {
         let view = UIView()

@@ -38,6 +38,7 @@
 		EC1394CF28A4DA5C00BED003 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */; };
 		EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */; };
 		EC1394D328A4DE4600BED003 /* ErrorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D228A4DE4600BED003 /* ErrorUser.swift */; };
+		EC84FA6528AC40DD00343682 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84FA6428AC40DD00343682 /* UIImage.swift */; };
 		ECAD5F0428A51A0200FA59F9 /* TaskMaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */; };
 		ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46328A6D57F00A25B1A /* TaskModel.swift */; };
 		ECD7A46628A6ED5200A25B1A /* SaveTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */; };
@@ -78,6 +79,7 @@
 		EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestore.swift; sourceTree = "<group>"; };
 		EC1394D228A4DE4600BED003 /* ErrorUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUser.swift; sourceTree = "<group>"; };
+		EC84FA6428AC40DD00343682 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMaxCell.swift; sourceTree = "<group>"; };
 		ECD7A46328A6D57F00A25B1A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTaskProtocol.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */,
 				ECF7F4A728A64C8300BAEE7C /* UITableView.swift */,
 				ECF7F4A928A64F5900BAEE7C /* UICollectionView.swift */,
+				EC84FA6428AC40DD00343682 /* UIImage.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */,
 				ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */,
 				E25E818428A1068900EADCE4 /* UITextField.swift in Sources */,
+				EC84FA6528AC40DD00343682 /* UIImage.swift in Sources */,
 				E22B8B4928A144D300AEC4CB /* CreateNavigationController.swift in Sources */,
 				ECD7A46B28A8421E00A25B1A /* UpdatingTaskProtocol.swift in Sources */,
 				ECF7F4B028A666A300BAEE7C /* NewTaskViewController.swift in Sources */,

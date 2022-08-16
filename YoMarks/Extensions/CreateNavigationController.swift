@@ -14,3 +14,10 @@ func createNavigationController(viewController vc: UIViewController) -> UINaviga
     navigationController.modalTransitionStyle = .coverVertical
     return navigationController
 }
+
+func createNavigationControllerModalPresent(viewController vc: UIViewController) -> UINavigationController {
+    let navigationController = UINavigationController(rootViewController: vc)
+    navigationController.navigationBar.prefersLargeTitles = true
+    navigationController.modalTransitionStyle = .coverVertical
+    return navigationController
+}

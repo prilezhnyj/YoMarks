@@ -28,4 +28,25 @@ extension UIButton {
             self.layer.shadowOffset = CGSize(width: 4, height: 4)
         }
     }
+    
+    convenience init(image: UIImage, colorImage: UIColor, backgroundColor: UIColor, isBorder: Bool, cornerRadius: CGFloat, isShadow: Bool) {
+        self.init(type: .system)
+        self.setImage(image, for: .normal)
+        self.tintColor = colorImage
+        self.backgroundColor = backgroundColor
+        self.layer.cornerRadius = cornerRadius
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        if isBorder == true {
+            self.layer.borderWidth = 1.5
+            self.layer.borderColor = UIColor.black.cgColor
+        }
+        
+        if isShadow == true {
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowOpacity = 0.1
+            self.layer.shadowRadius = 5
+            self.layer.shadowOffset = CGSize(width: 4, height: 4)
+        }
+    }
 }

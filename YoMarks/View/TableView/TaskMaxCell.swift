@@ -13,8 +13,8 @@ class TaskMaxCell: UITableViewCell {
     static let cellID = "TaskMaxCell"
     
     // MARK: Cell UI-components
-    let titleLabel = UILabel(text: "Heading", textColor: .black, font: FontSetup.bold(size: 20))
-    private let subtitleLabel = UILabel(text: "Description of the task. Description of the task. Description of the task. Description of the task. Description of the task.", textColor: .black, font: FontSetup.regular(size: 14), numberOfLines: 2)
+    let titleLabel = UILabel(text: "", textColor: .black, font: FontSetup.bold(size: 17))
+    private let subtitleLabel = UILabel(text: "", textColor: .gray, font: FontSetup.regular(size: 13), numberOfLines: 2)
     
     private let markButton: UIButton = {
         let button = UIButton(type: .system)
@@ -81,7 +81,7 @@ extension TaskMaxCell {
         customBackgroundView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.heightAnchor.constraint(equalToConstant: 24),
-            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 13),
+            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 11),
             titleLabel.leadingAnchor.constraint(equalTo: markButton.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: customBackgroundView.trailingAnchor, constant: -16)])
         
