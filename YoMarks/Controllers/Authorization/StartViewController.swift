@@ -40,10 +40,12 @@ extension StartViewController {
     }
     
     @objc private func pushSignUpVC() {
+        signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true)
     }
     
     @objc private func pushSignInVC() {
+        signInVC.modalPresentationStyle = .fullScreen
         present(signInVC, animated: true)
     }
 }

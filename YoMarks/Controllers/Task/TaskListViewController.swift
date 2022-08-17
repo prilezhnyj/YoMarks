@@ -188,6 +188,29 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         return 56
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            let task = self.tasksArray[indexPath.row]
+            FirestoreServices.shared.deleteData(user: self.currentUser, task: task) { check in
+                if check == true {
+                    self.tasksArray.remove(at: indexPath.row)
+                    self.taskTableView.deleteRows(at: [indexPath], with: .automatic)
+                    self.taskTableView.reloadData()
+                }
+            }
+            self.taskTableView.reloadData()
+        }
+        let edit = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
+            let task = self.tasksArray[indexPath.row]
+            let editTaskVC = EditTaskViewController(user: self.currentUser, task: task)
+            self.navigationController?.pushViewController(editTaskVC, animated: true)
+        }
+        delete.image = SystemImage.trash()
+        edit.image = SystemImage.edit()
+        edit.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [delete, edit])
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let task = tasksArray[indexPath.row]

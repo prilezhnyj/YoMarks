@@ -15,4 +15,16 @@ class SystemImage {
     static func trash() -> UIImage {
         return UIImage(systemName: "trash")!
     }
+    
+    static func edit() -> UIImage {
+        return UIImage(systemName: "slider.horizontal.3")!
+    }
+    
+    static func arrowLeft() -> UIImage {
+        return UIImage(systemName: "arrow.left")!
+    }
 }
+
+
+
+
