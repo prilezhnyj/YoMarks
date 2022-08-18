@@ -19,16 +19,16 @@ class SignInViewController: UIViewController {
     private let greetingLabel = UILabel(text: "Come back", textColor: .black, font: FontSetup.bold(size: 46))
     private let descriptionLabel = UILabel(text: "Log in to access your tasks and offer a job.", textColor: .black, font: FontSetup.medium(size: 16))
     
-    private let emailTextField = UITextField(placeholder: "Your email", isSecure: false, initialLetter: .none)
-    private let passwordTextField = UITextField(placeholder: "Your password", isSecure: false, initialLetter: .none)
+    private let emailTextField = CustomTextField(bgColor: .white, keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
+    private let passwordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password")
     
-    private let signUpButton = UIButton(titleText: "No account? Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
-    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
+    private let signUpButton = UIButton(titleText: "No account? Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
+    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
     private let closeButton = UIButton(image: SystemImage.arrowLeft(), colorImage: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = ColorSetup.background()
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -36,7 +36,7 @@ class SignInViewController: UIViewController {
     
     private lazy var conteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.background()
         view.frame.size = contentViewSize
         return view
     }()
@@ -44,13 +44,13 @@ class SignInViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.background()
         setupConstraints()
         setupTarget()
         registerNotificationKeyboard()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
-        bgScrollView.addGestureRecognizer(tapGesture)
+        conteinerView.addGestureRecognizer(tapGesture)
     }
     
     deinit {
@@ -71,7 +71,7 @@ extension SignInViewController {
     }
     
     @objc private func finishAuth() {
-        FirebaseAuth.shared.signIn(email: emailTextField.text, password: passwordTextField.text) { result in
+        FirebaseAuth.shared.signIn(email: emailTextField.textField.text, password: passwordTextField.textField.text) { result in
             switch result {
             case .success(let user):
                 self.showAlert(with: "Success", and: "User «\(user.email!)» successfully logged in.") {
@@ -92,8 +92,8 @@ extension SignInViewController {
     }
     
     @objc private func tapGestureAction() {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        emailTextField.textField.resignFirstResponder()
+        passwordTextField.textField.resignFirstResponder()
     }
     
     @objc private func keyboardShow(_ notification: Notification) {
@@ -147,13 +147,14 @@ extension SignInViewController {
             signInButton.heightAnchor.constraint(equalToConstant: 48),
             signInButton.widthAnchor.constraint(equalToConstant: 256)])
 
-        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField], distribution: .equalSpacing, axis: .vertical, spacing: 8)
+        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField], distribution: .fillEqually, axis: .vertical, spacing: 8)
 
         conteinerView.addSubview(textFieldsStackView)
         NSLayoutConstraint.activate([
             textFieldsStackView.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -32),
             textFieldsStackView.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
-            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
+            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32),
+            textFieldsStackView.heightAnchor.constraint(equalToConstant: 108)])
 
         conteinerView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([

@@ -17,19 +17,19 @@ class SignUpViewController: UIViewController {
     
     // MARK: UI-components
     private let greetingLabel = UILabel(text: "Welcome", textColor: .black, font: FontSetup.bold(size: 46))
-    private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks. With him, you will never miss an important meeting or forget to do any business.", textColor: .black, font: FontSetup.medium(size: 16))
+    private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks.", textColor: .black, font: FontSetup.medium(size: 16))
     
-    private let emailTextField = UITextField(placeholder: "Your email", isSecure: false, initialLetter: .none)
-    private let passwordTextField = UITextField(placeholder: "Your password", isSecure: false, initialLetter: .none)
-    private let repeatPasswordTextField = UITextField(placeholder: "Your password again", isSecure: false, initialLetter: .none)
+    private let emailTextField = CustomTextField(bgColor: .white, keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
+    private let passwordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password")
+    private let repeatPasswordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password again")
     
-    private let signUpButton = UIButton(titleText: "Finish registration", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
-    private let signInButton = UIButton(titleText: "Have an account? Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
+    private let signUpButton = UIButton(titleText: "Finish registration", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
+    private let signInButton = UIButton(titleText: "Have an account? Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
     private let closeButton = UIButton(image: SystemImage.arrowLeft(), colorImage: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = ColorSetup.background()
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
     
     private lazy var conteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.background()
         view.frame.size = contentViewSize
         return view
     }()
@@ -45,13 +45,13 @@ class SignUpViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.background()
         setupConstraints()
         setupTarget()
         registerNotificationKeyboard()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
-        bgScrollView.addGestureRecognizer(tapGesture)
+        conteinerView.addGestureRecognizer(tapGesture)
     }
     
     deinit {
@@ -72,7 +72,7 @@ extension SignUpViewController {
     }
     
     @objc private func finishRegistration() {
-        FirebaseAuth.shared.singUp(email: emailTextField.text, password: passwordTextField.text, repeatPassword: repeatPasswordTextField.text) { result in
+        FirebaseAuth.shared.singUp(email: emailTextField.textField.text, password: passwordTextField.textField.text, repeatPassword: repeatPasswordTextField.textField.text) { result in
             switch result {
             case .success(let user):
                 self.showAlert(with: "Success", and: "User «\(user.email!)» has been successfully created.") {
@@ -93,8 +93,9 @@ extension SignUpViewController {
     }
     
     @objc private func tapGestureAction() {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        emailTextField.textField.resignFirstResponder()
+        passwordTextField.textField.resignFirstResponder()
+        repeatPasswordTextField.textField.resignFirstResponder()
     }
     
     @objc private func keyboardShow(_ notification: Notification) {
@@ -148,13 +149,14 @@ extension SignUpViewController {
             signUpButton.heightAnchor.constraint(equalToConstant: 48),
             signUpButton.widthAnchor.constraint(equalToConstant: 256)])
         
-        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, repeatPasswordTextField], distribution: .equalSpacing, axis: .vertical, spacing: 8)
+        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, repeatPasswordTextField], distribution: .fillEqually, axis: .vertical, spacing: 8)
         
         conteinerView.addSubview(textFieldsStackView)
         NSLayoutConstraint.activate([
             textFieldsStackView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -32),
             textFieldsStackView.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
-            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
+            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32),
+            textFieldsStackView.heightAnchor.constraint(equalToConstant: 166)])
         
         conteinerView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([

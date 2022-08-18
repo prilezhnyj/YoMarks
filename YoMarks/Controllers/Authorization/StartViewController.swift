@@ -17,13 +17,13 @@ class StartViewController: UIViewController {
     private let greetingLabel = UILabel(text: "YoMarks", textColor: .black, font: FontSetup.bold(size: 46))
     private let descriptionLabel = UILabel(text: "Hello. This is «YoMarks». I'll let you always stay on the work wave and not forget anything!", textColor: .black, font: FontSetup.medium(size: 16))
     
-    private let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
-    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: .white, isBorder: true, cornerRadius: 10, isShadow: true)
+    private let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
+    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
     
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.background()
         setupConstraints()
         setupTarget()
         
@@ -53,10 +53,12 @@ extension StartViewController {
 // MARK: - AuthTransitionProtocol: authorization transitions
 extension StartViewController: AuthTransitionProtocol {
     func delegatePushSignUpVC() {
+        signUpVC.modalPresentationStyle = .fullScreen
         present(signUpVC, animated: true)
     }
     
     func delegatePushSignInVC() {
+        signInVC.modalPresentationStyle = .fullScreen
         present(signInVC, animated: true)
     }
     

@@ -44,6 +44,7 @@
 		ECD7A46628A6ED5200A25B1A /* SaveTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */; };
 		ECD7A46928A83C0800A25B1A /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */; };
 		ECD7A46B28A8421E00A25B1A /* UpdatingTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46A28A8421E00A25B1A /* UpdatingTaskProtocol.swift */; };
+		ECF3087F28AE34FD00FDD6ED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF3087E28AE34FD00FDD6ED /* CustomTextField.swift */; };
 		ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */; };
 		ECF7F4A428A54FF400BAEE7C /* ColorSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */; };
 		ECF7F4A628A562D100BAEE7C /* TaskMinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */; };
@@ -85,6 +86,7 @@
 		ECD7A46528A6ED5200A25B1A /* SaveTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTaskProtocol.swift; sourceTree = "<group>"; };
 		ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		ECD7A46A28A8421E00A25B1A /* UpdatingTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatingTaskProtocol.swift; sourceTree = "<group>"; };
+		ECF3087E28AE34FD00FDD6ED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		ECF7F4A128A54FAE00BAEE7C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		ECF7F4A328A54FF400BAEE7C /* ColorSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetup.swift; sourceTree = "<group>"; };
 		ECF7F4A528A562D100BAEE7C /* TaskMinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMinCell.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		E291E8DC28A045CB008F0C0C /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				ECF3087D28AE34EE00FDD6ED /* Custom */,
 				E291E8DD28A045D3008F0C0C /* UILabel.swift */,
 				E25E817D28A0F16900EADCE4 /* UIButton.swift */,
 				E25E818328A1068900EADCE4 /* UITextField.swift */,
@@ -266,6 +269,14 @@
 				ECD7A46828A83C0800A25B1A /* EditTaskViewController.swift */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		ECF3087D28AE34EE00FDD6ED /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3087E28AE34FD00FDD6ED /* CustomTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		ECF7F4AB28A65B6D00BAEE7C /* TableView */ = {
@@ -378,6 +389,7 @@
 				E25E817A28A0DCBA00EADCE4 /* ValidateAuth.swift in Sources */,
 				EC1394D328A4DE4600BED003 /* ErrorUser.swift in Sources */,
 				ECF7F4AA28A64F5A00BAEE7C /* UICollectionView.swift in Sources */,
+				ECF3087F28AE34FD00FDD6ED /* CustomTextField.swift in Sources */,
 				E291E8DB28A04497008F0C0C /* FontSetup.swift in Sources */,
 				E291E8C128A0406C008F0C0C /* AppDelegate.swift in Sources */,
 				ECF7F4A228A54FAE00BAEE7C /* UIColor.swift in Sources */,

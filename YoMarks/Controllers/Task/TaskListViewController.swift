@@ -31,7 +31,7 @@ class TaskListViewController: UIViewController {
         super.viewDidLoad()
         title = "👋🏻 Welcome"
         view.backgroundColor = ColorSetup.background()
-        navigationItem.backButtonTitle = "Back"
+        navigationItem.backButtonTitle = "Back to tasks"
         
         userUpload()
         addTarget()
@@ -135,6 +135,7 @@ extension TaskListViewController {
     
     @objc private func addNewTask() {
         let vc = createNavigationControllerModalPresent(viewController: newTaskVC)
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     
