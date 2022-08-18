@@ -101,7 +101,7 @@ extension NewTaskViewController {
     }
     
     @objc private func keyboardShow(_ notification: Notification) {
-        bgScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -38, right: 0)
+        bgScrollView.contentInset = UIEdgeInsets.zero
     }
     
     @objc private func keyboardHide() {

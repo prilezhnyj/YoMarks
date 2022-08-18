@@ -185,7 +185,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let task = tasksArray[indexPath.row]
         
-        guard task.description == "" else { return 86 }
+        guard task.description == "" else { return 88 }
         return 56
     }
     

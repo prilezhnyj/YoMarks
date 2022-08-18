@@ -37,8 +37,6 @@ class TaskMaxCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         setupConstraints()
-        
-        customBackgroundView.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 13).isActive = true
     }
     
     // MARK: layoutSubviews
@@ -81,7 +79,7 @@ extension TaskMaxCell {
         customBackgroundView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.heightAnchor.constraint(equalToConstant: 24),
-            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 11),
+            titleLabel.topAnchor.constraint(equalTo: customBackgroundView.topAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: markButton.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: customBackgroundView.trailingAnchor, constant: -16)])
         
