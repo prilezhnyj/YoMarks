@@ -33,6 +33,9 @@ class TaskListViewController: UIViewController {
         view.backgroundColor = ColorSetup.white()
         navigationItem.backButtonTitle = "Back to tasks"
         
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorSetup.purpleDark()]
+        navigationController?.navigationBar.tintColor = ColorSetup.purpleDark()
+        
         userUpload()
         addTarget()
         
@@ -43,8 +46,9 @@ class TaskListViewController: UIViewController {
         newTaskVC.delegate = self
         
         refreshControl.attributedTitle = NSAttributedString(string: "Update tasks")
+        refreshControl.tintColor = ColorSetup.orange()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: currentUser.email, style: .plain, target: self, action: #selector(userInfo))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "User: \(currentUser.email!)", style: .plain, target: self, action: #selector(userInfo))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNewTask))
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .nanoseconds(1)) {
@@ -53,6 +57,7 @@ class TaskListViewController: UIViewController {
         }
     }
     
+    // MARK: Lifecycle viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -207,8 +212,9 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(editTaskVC, animated: true)
         }
         delete.image = SystemImage.trash()
+        delete.backgroundColor = ColorSetup.orange()
         edit.image = SystemImage.edit()
-        edit.backgroundColor = .systemBlue
+        edit.backgroundColor = ColorSetup.green()
         return UISwipeActionsConfiguration(actions: [delete, edit])
     }
     

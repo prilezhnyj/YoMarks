@@ -14,11 +14,12 @@ class CustomTextField: UIView {
     convenience init(bgColor: UIColor, keyboardType: UIKeyboardType, isSecure: Bool, placeholder: String = "") {
         self.init()
         self.backgroundColor = bgColor
+        textField.font = FontSetup.medium(size: 17)
         textField.placeholder = placeholder
         textField.isSecureTextEntry = isSecure
         textField.keyboardType = keyboardType
         textField.borderStyle = .none
-        textField.textColor = ColorSetup.white()
+        textField.textColor = ColorSetup.black()
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: ColorSetup.placeholder()])
         
         
@@ -26,21 +27,21 @@ class CustomTextField: UIView {
             textField.autocapitalizationType = .none
             textField.autocorrectionType = .no
         } else {
-            textField.autocapitalizationType = .words
+            textField.autocapitalizationType = .sentences
             textField.autocorrectionType = .yes
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = ColorSetup.white()
         translatesAutoresizingMaskIntoConstraints = false
         setupConstraints()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = self.frame.height / 2
+        layer.cornerRadius = 15
         clipsToBounds = true
     }
     

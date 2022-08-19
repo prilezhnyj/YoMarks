@@ -13,21 +13,21 @@ class TaskMaxCell: UITableViewCell {
     static let cellID = "TaskMaxCell"
     
     // MARK: Cell UI-components
-    let titleLabel = UILabel(text: "", textColor: .black, font: FontSetup.bold(size: 17))
-    private let subtitleLabel = UILabel(text: "", textColor: .gray, font: FontSetup.regular(size: 13), numberOfLines: 2)
+    let titleLabel = UILabel(text: "", textColor: ColorSetup.white(), font: FontSetup.bold(size: 17))
+    private let subtitleLabel = UILabel(text: "", textColor: ColorSetup.white(), font: FontSetup.regular(size: 13), numberOfLines: 2)
     
     private let markButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .clear
-        button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = ColorSetup.white()
+        button.layer.borderWidth = 2
+        button.layer.borderColor = ColorSetup.white().cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private let customBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.purpleDark()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -37,12 +37,16 @@ class TaskMaxCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         setupConstraints()
+        
+        let selectView = UIView()
+        selectView.backgroundColor = ColorSetup.white()
+        self.selectedBackgroundView = selectView
     }
     
     // MARK: layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
-        customBackgroundView.layer.cornerRadius = 20
+        customBackgroundView.layer.cornerRadius = 15
         customBackgroundView.clipsToBounds = true
         markButton.layer.cornerRadius = 6
         markButton.clipsToBounds = true

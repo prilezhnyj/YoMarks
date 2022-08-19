@@ -13,20 +13,20 @@ class TaskMinCell: UITableViewCell {
     static let cellID = "TaskMinCell"
     
     // MARK: Cell UI-components
-    private let titleLabel = UILabel(text: "", textColor: .black, font: FontSetup.bold(size: 17))
+    private let titleLabel = UILabel(text: "", textColor: ColorSetup.white(), font: FontSetup.bold(size: 17))
     
     private let borderView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.borderWidth = 1.5
-        view.layer.borderColor = UIColor.black.cgColor
+        view.backgroundColor = ColorSetup.white()
+        view.layer.borderWidth = 2
+        view.layer.borderColor = ColorSetup.white().cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let customBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorSetup.purpleDark()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -36,12 +36,16 @@ class TaskMinCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
         setupConstraints()
+        
+        let selectView = UIView()
+        selectView.backgroundColor = ColorSetup.white()
+        self.selectedBackgroundView = selectView
     }
     
      // MARK: layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
-        customBackgroundView.layer.cornerRadius = 20
+        customBackgroundView.layer.cornerRadius = 15
         customBackgroundView.clipsToBounds = true
         borderView.layer.cornerRadius = 6
         borderView.clipsToBounds = true

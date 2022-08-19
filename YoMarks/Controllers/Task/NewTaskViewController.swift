@@ -16,20 +16,22 @@ class NewTaskViewController: UIViewController {
     }
     
     // MARK: UI-components
-    private let titleLabel = UILabel(text: "Heading", textColor: .black, font: FontSetup.bold(size: 17))
-    private let descriptionLabel = UILabel(text: "Description", textColor: .black, font: FontSetup.bold(size: 17))
-    private let footTitleLabel = UILabel(text: "Enter the name of the task. It will be displayed on the main screen.", textColor: .gray, font: FontSetup.regular(size: 13))
-    private let footDescriptionLabel = UILabel(text: "Enter a description of the task. Part of the description will be displayed on the main screen.", textColor: .gray, font: FontSetup.regular(size: 13))
+    private let titleLabel = UILabel(text: "Heading", textColor: ColorSetup.purpleDark(), font: FontSetup.bold(size: 17))
+    private let descriptionLabel = UILabel(text: "Description", textColor: ColorSetup.purpleDark(), font: FontSetup.bold(size: 17))
+    private let footTitleLabel = UILabel(text: "Enter the name of the task. It will be displayed on the main screen.", textColor: ColorSetup.black(), font: FontSetup.regular(size: 13))
+    private let footDescriptionLabel = UILabel(text: "Enter a description of the task. Part of the description will be displayed on the main screen.", textColor: ColorSetup.black(), font: FontSetup.regular(size: 13))
 
     private let titleTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: false)
     private let descriptionTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: false)
     
-    private let saveButton = UIButton(titleText: "Save", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
-    private let closeButton = UIButton(image: SystemImage.close(), colorImage: .black, backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 0, isShadow: true)
+    private let saveButton = UIButton(titleText: "Save", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.black(), backgroundColor: ColorSetup.green(), isBorder: false, cornerRadius: 15, isShadow: true, shadowColor: ColorSetup.purpleDark())
+    private let closeButton = UIButton(image: SystemImage.close(), colorImage: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = ColorSetup.white()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -49,6 +51,9 @@ class NewTaskViewController: UIViewController {
         title = "🎉 New task"
         setupConstraints()
         
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorSetup.purpleDark()]
+        navigationController?.navigationBar.tintColor = ColorSetup.purpleDark()
+        
         saveButton.addTarget(self, action: #selector(saveNewTask), for: .touchUpInside)
         closeButton.addTarget(self, action: #selector(closeViewController), for: .touchUpInside)
         
@@ -63,15 +68,6 @@ class NewTaskViewController: UIViewController {
         super.viewWillAppear(animated)
         titleTextField.textField.text? = ""
         descriptionTextField.textField.text = ""
-    }
-    
-    // MARK: viewDidLayoutSubviews
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        saveButton.layer.cornerRadius = saveButton.frame.height / 2
-        saveButton.clipsToBounds = true
-        closeButton.layer.cornerRadius = closeButton.frame.height / 2
-        closeButton.clipsToBounds = true
     }
     
     deinit {

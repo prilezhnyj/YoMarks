@@ -29,6 +29,8 @@ class SignInViewController: UIViewController {
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = ColorSetup.white()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -100,10 +102,14 @@ extension SignInViewController {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         bgScrollView.contentOffset = CGPoint(x: 0, y: keyboardFrame.size.height - 24)
+        greetingLabel.isHidden = true
+        descriptionLabel.isHidden = true
     }
     
     @objc private func keyboardHide() {
         bgScrollView.contentOffset = CGPoint.zero
+        greetingLabel.isHidden = false
+        descriptionLabel.isHidden = false
     }
 }
 
