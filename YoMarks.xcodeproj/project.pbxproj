@@ -38,6 +38,7 @@
 		EC1394CF28A4DA5C00BED003 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */; };
 		EC1394D128A4DB5D00BED003 /* FirebaseFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */; };
 		EC1394D328A4DE4600BED003 /* ErrorUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1394D228A4DE4600BED003 /* ErrorUser.swift */; };
+		EC6529EA28AF7DD500BDA4C6 /* CustomTextFieldForEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6529E928AF7DD500BDA4C6 /* CustomTextFieldForEmail.swift */; };
 		EC84FA6528AC40DD00343682 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84FA6428AC40DD00343682 /* UIImage.swift */; };
 		ECAD5F0428A51A0200FA59F9 /* TaskMaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */; };
 		ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD7A46328A6D57F00A25B1A /* TaskModel.swift */; };
@@ -80,6 +81,7 @@
 		EC1394CE28A4DA5C00BED003 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC1394D028A4DB5D00BED003 /* FirebaseFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestore.swift; sourceTree = "<group>"; };
 		EC1394D228A4DE4600BED003 /* ErrorUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorUser.swift; sourceTree = "<group>"; };
+		EC6529E928AF7DD500BDA4C6 /* CustomTextFieldForEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldForEmail.swift; sourceTree = "<group>"; };
 		EC84FA6428AC40DD00343682 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		ECAD5F0328A51A0200FA59F9 /* TaskMaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMaxCell.swift; sourceTree = "<group>"; };
 		ECD7A46328A6D57F00A25B1A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				ECF3087E28AE34FD00FDD6ED /* CustomTextField.swift */,
+				EC6529E928AF7DD500BDA4C6 /* CustomTextFieldForEmail.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				ECD7A46428A6D57F00A25B1A /* TaskModel.swift in Sources */,
 				ECF7F4A828A64C8300BAEE7C /* UITableView.swift in Sources */,
 				E291E8D628A042E5008F0C0C /* StartViewController.swift in Sources */,
+				EC6529EA28AF7DD500BDA4C6 /* CustomTextFieldForEmail.swift in Sources */,
 				E25E817E28A0F16900EADCE4 /* UIButton.swift in Sources */,
 				E2D0526628A12AB9000F2363 /* AuthTransitionProtocol.swift in Sources */,
 				ECF7F4A428A54FF400BAEE7C /* ColorSetup.swift in Sources */,

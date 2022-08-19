@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-    convenience init(titleText: String, titleFont: UIFont, titleColor: UIColor, backgroundColor: UIColor, isBorder: Bool, cornerRadius: CGFloat, isShadow: Bool) {
+    convenience init(titleText: String, titleFont: UIFont, titleColor: UIColor, backgroundColor: UIColor, isBorder: Bool, cornerRadius: CGFloat, isShadow: Bool, borderColor: UIColor = .black, shadowColor: UIColor = .black) {
         self.init(type: .system)
         self.setTitle(titleText, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
@@ -17,19 +17,19 @@ extension UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         if isBorder == true {
-            self.layer.borderWidth = 1.5
-            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 2
+            self.layer.borderColor = borderColor.cgColor
         }
         
         if isShadow == true {
-            self.layer.shadowColor = UIColor.black.cgColor
-            self.layer.shadowOpacity = 0.1
-            self.layer.shadowRadius = 5
-            self.layer.shadowOffset = CGSize(width: 4, height: 4)
+            self.layer.shadowColor = shadowColor.cgColor
+            self.layer.shadowOpacity = 0.3
+            self.layer.shadowRadius = 10
+            self.layer.shadowOffset = CGSize(width: 2, height: 2)
         }
     }
     
-    convenience init(image: UIImage, colorImage: UIColor, backgroundColor: UIColor, isBorder: Bool, cornerRadius: CGFloat, isShadow: Bool) {
+    convenience init(image: UIImage, colorImage: UIColor, backgroundColor: UIColor, isBorder: Bool, cornerRadius: CGFloat, isShadow: Bool, borderColor: UIColor = .black, shadowColor: UIColor = .black) {
         self.init(type: .system)
         self.setImage(image, for: .normal)
         self.tintColor = colorImage
@@ -38,15 +38,15 @@ extension UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         if isBorder == true {
-            self.layer.borderWidth = 1.5
-            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 2
+            self.layer.borderColor = borderColor.cgColor
         }
         
         if isShadow == true {
-            self.layer.shadowColor = UIColor.black.cgColor
-            self.layer.shadowOpacity = 0.1
-            self.layer.shadowRadius = 5
-            self.layer.shadowOffset = CGSize(width: 4, height: 4)
+            self.layer.shadowColor = shadowColor.cgColor
+            self.layer.shadowOpacity = 0.3
+            self.layer.shadowRadius = 10
+            self.layer.shadowOffset = CGSize(width: 2, height: 2)
         }
     }
 }

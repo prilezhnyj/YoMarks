@@ -18,6 +18,8 @@ class CustomTextField: UIView {
         textField.isSecureTextEntry = isSecure
         textField.keyboardType = keyboardType
         textField.borderStyle = .none
+        textField.textColor = ColorSetup.white()
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: ColorSetup.placeholder()])
         
         
         if keyboardType == .emailAddress || keyboardType == .URL {

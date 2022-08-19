@@ -25,11 +25,11 @@ class NewTaskViewController: UIViewController {
     private let descriptionTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: false)
     
     private let saveButton = UIButton(titleText: "Save", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 10, isShadow: true)
-    private let closeButton = UIButton(image: SystemImage.close(), colorImage: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 0, isShadow: true)
+    private let closeButton = UIButton(image: SystemImage.close(), colorImage: .black, backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 0, isShadow: true)
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = ColorSetup.background()
+        scrollView.backgroundColor = ColorSetup.white()
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -37,7 +37,7 @@ class NewTaskViewController: UIViewController {
     
     private lazy var conteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         view.frame.size = contentViewSize
         return view
     }()
@@ -45,7 +45,7 @@ class NewTaskViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         title = "🎉 New task"
         setupConstraints()
         

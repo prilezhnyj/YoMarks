@@ -14,16 +14,16 @@ class StartViewController: UIViewController {
     let signUpVC = SignUpViewController()
     let signInVC = SignInViewController()
     
-    private let greetingLabel = UILabel(text: "YoMarks", textColor: .black, font: FontSetup.bold(size: 46))
-    private let descriptionLabel = UILabel(text: "Hello. This is «YoMarks». I'll let you always stay on the work wave and not forget anything!", textColor: .black, font: FontSetup.medium(size: 16))
+    private let greetingLabel = UILabel(text: "YoTasks", textColor: ColorSetup.purpleDark(), font: FontSetup.bold(size: 34))
+    private let descriptionLabel = UILabel(text: "Hello. This is «YoTasks». I'll let you always stay on the work wave and not forget anything!", textColor: ColorSetup.black(), font: FontSetup.regular(size: 17))
     
-    private let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
-    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
+    private let signUpButton = UIButton(titleText: "Sign Up", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.white(), backgroundColor: ColorSetup.purpleDark(), isBorder: false, cornerRadius: 15, isShadow: true, shadowColor: ColorSetup.purpleDark())
+    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
     
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         setupConstraints()
         setupTarget()
         
@@ -80,7 +80,7 @@ extension StartViewController {
         
         view.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32)])
         
@@ -93,7 +93,7 @@ extension StartViewController {
         
         view.addSubview(signUpButton)
         NSLayoutConstraint.activate([
-            signUpButton.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -8),
+            signUpButton.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -16),
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.widthAnchor.constraint(equalToConstant: 256),
             signUpButton.heightAnchor.constraint(equalToConstant: 48)])

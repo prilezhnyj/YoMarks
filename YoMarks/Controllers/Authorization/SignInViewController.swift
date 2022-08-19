@@ -16,19 +16,19 @@ class SignInViewController: UIViewController {
     }
     
     // MARK: UI-components
-    private let greetingLabel = UILabel(text: "Come back", textColor: .black, font: FontSetup.bold(size: 46))
-    private let descriptionLabel = UILabel(text: "Log in to access your tasks and offer a job.", textColor: .black, font: FontSetup.medium(size: 16))
+    private let greetingLabel = UILabel(text: "Come back", textColor: ColorSetup.purpleDark(), font: FontSetup.bold(size: 34))
+    private let descriptionLabel = UILabel(text: "Log in to access your tasks and offer a job", textColor: ColorSetup.black(), font: FontSetup.regular(size: 17))
     
-    private let emailTextField = CustomTextField(bgColor: .white, keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
-    private let passwordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password")
+    private let emailTextField = CustomTextFieldForEmail(keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
+    private let passwordTextField = CustomTextFieldForEmail(keyboardType: .default, isSecure: false, placeholder: "Your password")
     
-    private let signUpButton = UIButton(titleText: "No account? Sign Up", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
-    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
-    private let closeButton = UIButton(image: SystemImage.arrowLeft(), colorImage: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
+    private let signInButton = UIButton(titleText: "Sign In", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.white(), backgroundColor: ColorSetup.purpleDark(), isBorder: false, cornerRadius: 15, isShadow: true, shadowColor: ColorSetup.purpleDark())
+    private let signUpButton = UIButton(titleText: "No account? Sign Up", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
+    private let closeButton = UIButton(image: SystemImage.arrowDown(), colorImage: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = ColorSetup.background()
+        scrollView.backgroundColor = ColorSetup.white()
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -36,7 +36,7 @@ class SignInViewController: UIViewController {
     
     private lazy var conteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         view.frame.size = contentViewSize
         return view
     }()
@@ -44,7 +44,7 @@ class SignInViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         setupConstraints()
         setupTarget()
         registerNotificationKeyboard()
@@ -139,32 +139,31 @@ extension SignInViewController {
             signUpButton.centerXAnchor.constraint(equalTo: conteinerView.centerXAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: 48),
             signUpButton.widthAnchor.constraint(equalToConstant: 256)])
-
+        
         conteinerView.addSubview(signInButton)
         NSLayoutConstraint.activate([
-            signInButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -8),
+            signInButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -16),
             signInButton.centerXAnchor.constraint(equalTo: conteinerView.centerXAnchor),
             signInButton.heightAnchor.constraint(equalToConstant: 48),
             signInButton.widthAnchor.constraint(equalToConstant: 256)])
-
-        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField], distribution: .fillEqually, axis: .vertical, spacing: 8)
-
+        
+        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField], distribution: .fill, axis: .vertical, spacing: 32)
+        
         conteinerView.addSubview(textFieldsStackView)
         NSLayoutConstraint.activate([
-            textFieldsStackView.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -32),
+            textFieldsStackView.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -48),
             textFieldsStackView.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
-            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32),
-            textFieldsStackView.heightAnchor.constraint(equalToConstant: 108)])
-
+            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
+        
         conteinerView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.bottomAnchor.constraint(equalTo: textFieldsStackView.topAnchor, constant: -32),
+            descriptionLabel.bottomAnchor.constraint(equalTo: textFieldsStackView.topAnchor, constant: -48),
             descriptionLabel.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
             descriptionLabel.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
-
+        
         conteinerView.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
-            greetingLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor),
+            greetingLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -16),
             greetingLabel.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
             greetingLabel.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
     }

@@ -16,20 +16,20 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: UI-components
-    private let greetingLabel = UILabel(text: "Welcome", textColor: .black, font: FontSetup.bold(size: 46))
-    private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks.", textColor: .black, font: FontSetup.medium(size: 16))
+    private let greetingLabel = UILabel(text: "Welcome", textColor: ColorSetup.purpleDark(), font: FontSetup.bold(size: 34))
+    private let descriptionLabel = UILabel(text: "These are applications for keeping track of your cases and tasks.", textColor: ColorSetup.black(), font: FontSetup.regular(size: 17))
     
-    private let emailTextField = CustomTextField(bgColor: .white, keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
-    private let passwordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password")
-    private let repeatPasswordTextField = CustomTextField(bgColor: .white, keyboardType: .default, isSecure: true, placeholder: "Your password again")
+    private let emailTextField = CustomTextFieldForEmail(keyboardType: .emailAddress, isSecure: false, placeholder: "Your email")
+    private let passwordTextField = CustomTextFieldForEmail(keyboardType: .default, isSecure: false, placeholder: "Your password")
+    private let repeatPasswordTextField = CustomTextFieldForEmail(keyboardType: .default, isSecure: false, placeholder: "Your password again")
     
-    private let signUpButton = UIButton(titleText: "Finish registration", titleFont: FontSetup.medium(size: 16), titleColor: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
-    private let signInButton = UIButton(titleText: "Have an account? Sign In", titleFont: FontSetup.medium(size: 16), titleColor: .black, backgroundColor: ColorSetup.background(), isBorder: true, cornerRadius: 24, isShadow: true)
-    private let closeButton = UIButton(image: SystemImage.arrowLeft(), colorImage: .white, backgroundColor: .black, isBorder: false, cornerRadius: 24, isShadow: true)
+    private let signUpButton = UIButton(titleText: "Finish registration", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.white(), backgroundColor: ColorSetup.purpleDark(), isBorder: false, cornerRadius: 15, isShadow: true, shadowColor: ColorSetup.purpleDark())
+    private let signInButton = UIButton(titleText: "Have an account? Sign In", titleFont: FontSetup.bold(size: 17), titleColor: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
+    private let closeButton = UIButton(image: SystemImage.arrowDown(), colorImage: ColorSetup.orange(), backgroundColor: ColorSetup.white(), isBorder: true, cornerRadius: 15, isShadow: true, borderColor: ColorSetup.orange(), shadowColor: ColorSetup.orange())
     
     private lazy var bgScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = ColorSetup.background()
+        scrollView.backgroundColor = ColorSetup.white()
         scrollView.contentSize = contentViewSize
         scrollView.frame = view.bounds
         return scrollView
@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
     
     private lazy var conteinerView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         view.frame.size = contentViewSize
         return view
     }()
@@ -45,13 +45,21 @@ class SignUpViewController: UIViewController {
     // MARK: Lifecycle viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         setupConstraints()
         setupTarget()
         registerNotificationKeyboard()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         conteinerView.addGestureRecognizer(tapGesture)
+    }
+    
+    // MARK: Lifecycle viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.textField.text = ""
+        passwordTextField.textField.text = ""
+        repeatPasswordTextField.textField.text = ""
     }
     
     deinit {
@@ -144,29 +152,28 @@ extension SignUpViewController {
         
         conteinerView.addSubview(signUpButton)
         NSLayoutConstraint.activate([
-            signUpButton.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -8),
+            signUpButton.bottomAnchor.constraint(equalTo: signInButton.topAnchor, constant: -16),
             signUpButton.centerXAnchor.constraint(equalTo: conteinerView.centerXAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: 48),
             signUpButton.widthAnchor.constraint(equalToConstant: 256)])
         
-        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, repeatPasswordTextField], distribution: .fillEqually, axis: .vertical, spacing: 8)
+        let textFieldsStackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, repeatPasswordTextField], distribution: .fill, axis: .vertical, spacing: 32)
         
         conteinerView.addSubview(textFieldsStackView)
         NSLayoutConstraint.activate([
-            textFieldsStackView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -32),
+            textFieldsStackView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -48),
             textFieldsStackView.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
-            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32),
-            textFieldsStackView.heightAnchor.constraint(equalToConstant: 166)])
+            textFieldsStackView.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
         
         conteinerView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.bottomAnchor.constraint(equalTo: textFieldsStackView.topAnchor, constant: -32),
+            descriptionLabel.bottomAnchor.constraint(equalTo: textFieldsStackView.topAnchor, constant: -48),
             descriptionLabel.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
             descriptionLabel.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
         
         conteinerView.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
-            greetingLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor),
+            greetingLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -16),
             greetingLabel.leadingAnchor.constraint(equalTo: conteinerView.leadingAnchor, constant: 32),
             greetingLabel.trailingAnchor.constraint(equalTo: conteinerView.trailingAnchor, constant: -32)])
     }

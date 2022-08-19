@@ -18,7 +18,7 @@ class TaskListViewController: UIViewController {
     // MARK: ViewControllers and UI-components
     private let newTaskVC = NewTaskViewController()
     private let searchController = UISearchController()
-    private let taskTableView = UITableView(backgroundColor: ColorSetup.background(), separatorColor: .clear)
+    private let taskTableView = UITableView(backgroundColor: ColorSetup.white(), separatorColor: .clear)
     
     // MARK: Custom Initializer
     init(currentUser: User) {
@@ -30,7 +30,7 @@ class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "👋🏻 Welcome"
-        view.backgroundColor = ColorSetup.background()
+        view.backgroundColor = ColorSetup.white()
         navigationItem.backButtonTitle = "Back to tasks"
         
         userUpload()

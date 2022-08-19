@@ -23,8 +23,11 @@ class SystemImage {
     static func arrowLeft() -> UIImage {
         return UIImage(systemName: "arrow.left")!
     }
+    
+    static func arrowDown() -> UIImage {
+        return UIImage(systemName: "arrow.down")!
+    }
 }
-
 
 
 
