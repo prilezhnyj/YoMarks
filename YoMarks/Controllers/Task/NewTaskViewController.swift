@@ -59,6 +59,9 @@ class NewTaskViewController: UIViewController {
         
         registerNotificationKeyboard()
         
+        titleTextField.textField.delegate = self
+        descriptionTextField.textField.delegate = self
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         conteinerView.addGestureRecognizer(tapGesture)
     }
@@ -102,6 +105,14 @@ extension NewTaskViewController {
     
     @objc private func keyboardHide() {
         bgScrollView.contentInset = UIEdgeInsets.zero
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension NewTaskViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

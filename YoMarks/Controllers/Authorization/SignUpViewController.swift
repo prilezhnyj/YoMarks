@@ -52,6 +52,10 @@ class SignUpViewController: UIViewController {
         setupTarget()
         registerNotificationKeyboard()
         
+        emailTextField.textField.delegate = self
+        passwordTextField.textField.delegate = self
+        repeatPasswordTextField.textField.delegate = self
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         conteinerView.addGestureRecognizer(tapGesture)
     }
@@ -120,6 +124,14 @@ extension SignUpViewController {
         bgScrollView.contentOffset = CGPoint.zero
         greetingLabel.isHidden = false
         descriptionLabel.isHidden = false
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
