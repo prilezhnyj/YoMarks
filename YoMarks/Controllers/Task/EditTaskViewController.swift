@@ -98,7 +98,7 @@ extension EditTaskViewController {
             print("The header field is empty")
             return
         }
-        FirestoreServices.shared.updatingData(title: titleTextField.textField.text!, description: descriptionTextField.textField.text!, user: user, task: task) { result in
+        FirestoreServices.shared.updatingData(title: titleTextField.textField.text!, description: descriptionTextField.textField.text!, status: false, user: user, task: task) { result in
             switch result {
                 
             case .success(let data):

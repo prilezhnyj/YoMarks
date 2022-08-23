@@ -81,7 +81,9 @@ class TaskListViewController: UIViewController {
         FirestoreServices.shared.allGetData(user: currentUser) { result in
             switch result {
             case .success(let data):
-                self.tasksArray = data
+                var array = data
+                array.sort { !$0.status && $1.status }
+                self.tasksArray = array
                 self.taskTableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -116,6 +118,7 @@ extension TaskListViewController {
         taskTableView.dataSource = self
         taskTableView.register(TaskMaxCell.self, forCellReuseIdentifier: TaskMaxCell.cellID)
         taskTableView.register(TaskMinCell.self, forCellReuseIdentifier: TaskMinCell.cellID)
+        taskTableView.register(DoneTaskCell.self, forCellReuseIdentifier: DoneTaskCell.cellID)
     }
 }
 
@@ -176,22 +179,32 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let task = tasksArray[indexPath.row]
         
-        guard task.description == "" else {
-            let cellMax = tableView.dequeueReusableCell(withIdentifier: TaskMaxCell.cellID, for: indexPath) as! TaskMaxCell
-            cellMax.config(task: task)
-            return cellMax
+        if task.status == true {
+            let doneCell = tableView.dequeueReusableCell(withIdentifier: DoneTaskCell.cellID, for: indexPath) as! DoneTaskCell
+            doneCell.config(task: task)
+            return doneCell
+        } else {
+            guard task.description == "" else {
+                let cellMax = tableView.dequeueReusableCell(withIdentifier: TaskMaxCell.cellID, for: indexPath) as! TaskMaxCell
+                cellMax.config(task: task)
+                return cellMax
+            }
+            
+            let cellMin = tableView.dequeueReusableCell(withIdentifier: TaskMinCell.cellID, for: indexPath) as! TaskMinCell
+            cellMin.config(task: task)
+            return cellMin
         }
-        
-        let cellMin = tableView.dequeueReusableCell(withIdentifier: TaskMinCell.cellID, for: indexPath) as! TaskMinCell
-        cellMin.config(task: task)
-        return cellMin
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let task = tasksArray[indexPath.row]
         
-        guard task.description == "" else { return 88 }
-        return 56
+        if task.status == false {
+            guard task.description == "" else { return 88 }
+            return 56
+        } else {
+            return 56
+        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -221,8 +234,32 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let task = tasksArray[indexPath.row]
-        let editTaskVC = EditTaskViewController(user: currentUser, task: task)
-        navigationController?.pushViewController(editTaskVC, animated: true)
+        
+        if task.status == false {
+            let updateTask = TaskModel(title: task.title, description: task.description, id: task.id, status: true)
+            FirestoreServices.shared.updatingOneTask(user: currentUser, task: updateTask) { result in
+                switch result {
+                case .success(let data):
+                    self.tasksArray.remove(at: indexPath.row)
+                    self.tasksArray.append(data)
+                    tableView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        } else {
+            let updateTask = TaskModel(title: task.title, description: task.description, id: task.id, status: false)
+            FirestoreServices.shared.updatingOneTask(user: currentUser, task: updateTask) { result in
+                switch result {
+                case .success(let data):
+                    self.tasksArray.remove(at: indexPath.row)
+                    self.tasksArray.insert(data, at: 0)
+                    tableView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 

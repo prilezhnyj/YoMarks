@@ -77,8 +77,15 @@ class FirestoreServices {
                     let title = data["title"] as! String
                     let description = data["description"] as! String
                     let id = data["id"] as! String
-                    let task = TaskModel(title: title, description: description, id: id)
-                    tasksArray.append(task)
+                    let status = data["status"] as! String
+                    
+                    if status == "completed" {
+                        let task = TaskModel(title: title, description: description, id: id, status: true)
+                        tasksArray.append(task)
+                    } else {
+                        let task = TaskModel(title: title, description: description, id: id, status: false)
+                        tasksArray.append(task)
+                    }
                 }
                 completion(.success(tasksArray))
             }
@@ -105,13 +112,23 @@ class FirestoreServices {
     }
     
     // Done. Works correctly
-    func updatingData(title: String, description: String, user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+    func updatingData(title: String, description: String, status: Bool, user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
         let updateTask = TaskModel(title: title, description: description, id: task.id)
         usersRef.document(user.uid).collection("tasks").document(updateTask.id).updateData(updateTask.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
                 completion(.success(updateTask))
+            }
+        }
+    }
+    
+    func updatingOneTask(user: User, task: TaskModel, completion: @escaping (Result<TaskModel, Error>) -> Void) {
+        usersRef.document(user.uid).collection("tasks").document(task.id).updateData(task.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(task))
             }
         }
     }

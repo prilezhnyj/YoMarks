@@ -36,4 +36,8 @@ class ColorSetup {
         return hexColor(value: "19181D")
     }
     
+    static func gray() -> UIColor {
+        return hexColor(value: "D6D3DD")
+    }
+    
 }

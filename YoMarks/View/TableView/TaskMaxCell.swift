@@ -18,7 +18,7 @@ class TaskMaxCell: UITableViewCell {
     
     private let markButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = ColorSetup.white()
+        button.backgroundColor = ColorSetup.purpleDark()
         button.layer.borderWidth = 2
         button.layer.borderColor = ColorSetup.white().cgColor
         button.translatesAutoresizingMaskIntoConstraints = false

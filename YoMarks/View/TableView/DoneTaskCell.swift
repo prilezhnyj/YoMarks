@@ -1,32 +1,32 @@
 //
-//  TaskMinCell.swift
+//  DoneTaskCell.swift
 //  YoMarks
 //
-//  Created by Максим Боталов on 11.08.2022.
+//  Created by Максим Боталов on 20.08.2022.
 //
 
 import UIKit
 
-class TaskMinCell: UITableViewCell {
+class DoneTaskCell: UITableViewCell {
     
     // MARK: Property
-    static let cellID = "TaskMinCell"
+    static let cellID = "DoneTaskCell"
     
     // MARK: Cell UI-components
-    private let titleLabel = UILabel(text: "", textColor: ColorSetup.white(), font: FontSetup.bold(size: 17))
+    private let titleLabel = UILabel(text: "", textColor: ColorSetup.placeholder(), font: FontSetup.bold(size: 17))
     
     private let borderView: UIView = {
         let view = UIView()
         view.backgroundColor = ColorSetup.purpleDark()
         view.layer.borderWidth = 2
-        view.layer.borderColor = ColorSetup.white().cgColor
+        view.layer.borderColor = ColorSetup.purpleDark().cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let customBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorSetup.purpleDark()
+        view.backgroundColor = ColorSetup.gray()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,7 +62,7 @@ class TaskMinCell: UITableViewCell {
 }
 
 // MARK: - Setting up constraints and auto layout
-extension TaskMinCell {
+extension DoneTaskCell {
     private func setupConstraints() {
         self.addSubview(customBackgroundView)
         NSLayoutConstraint.activate([
