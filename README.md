@@ -43,5 +43,5 @@
 [TELEGRAM](https://t.me/prilezhnyj) | [INSTAGRAM](https://instagram.com/prilezhnyj) | [EMAIL](dev.botalov@gmail.com)
 
 ---
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/Auth.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.12.53.png)
+![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/Auth.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.12.53.png) ![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/SignUp.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.13.01.png)
 
