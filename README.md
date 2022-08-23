@@ -43,5 +43,5 @@
 [TELEGRAM](https://t.me/prilezhnyj) | [INSTAGRAM](https://instagram.com/prilezhnyj) | [EMAIL](dev.botalov@gmail.com)
 
 ---
-[](https://drive.google.com/drive/folders/1OQy1QNmiCwvGAaRMw3-k8zId8nYfpm7o)
+![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/Auth.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.12.53.png)
 
