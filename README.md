@@ -43,9 +43,5 @@
 [TELEGRAM](https://t.me/prilezhnyj) | [INSTAGRAM](https://instagram.com/prilezhnyj) | [EMAIL](dev.botalov@gmail.com)
 
 ---
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/Auth.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.12.53.png)
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/SignUp.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.13.01.png)
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/Tasks.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.17.22.png)
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/TasksSwipe.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.17.35.png)
-![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/Screenshot/EditTask.imageset/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-08-23%20at%2017.18.00.png)
+![](https://github.com/prilezhnyj/YoMarks/blob/main/YoMarks/Resources/Assets.xcassets/MainSc.imageset/Group%202.png)
 
