@@ -29,8 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         FirestoreServices.shared.getUserData(user: user) { result in
             switch result {
             case .success(_):
-                let taskVC = createNavigationController(viewController: TaskListViewController(currentUser: user))
-                window.rootViewController = taskVC
+                let taskVC = TaskListViewController(currentUser: user)
+                let taskNavVC = createNavigationController(viewController: taskVC, nameItem: "Task", nameImageItem: "list.dash")
+                window.rootViewController = taskNavVC
             case .failure(_):
                 window.rootViewController = StartViewController()
             }

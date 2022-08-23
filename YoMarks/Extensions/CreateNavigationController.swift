@@ -7,7 +7,7 @@
 
 import UIKit
 
-func createNavigationController(viewController vc: UIViewController) -> UINavigationController {
+func createNavigationController(viewController vc: UIViewController, nameItem: String, nameImageItem: String) -> UINavigationController {
     let navigationController = UINavigationController(rootViewController: vc)
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.modalPresentationStyle = .fullScreen
@@ -15,7 +15,7 @@ func createNavigationController(viewController vc: UIViewController) -> UINaviga
     return navigationController
 }
 
-func createNavigationControllerModalPresent(viewController vc: UIViewController) -> UINavigationController {
+func createNavigationControllerModalPresent(viewController vc: UIViewController, nameItem: String, nameImageItem: String) -> UINavigationController {
     let navigationController = UINavigationController(rootViewController: vc)
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.modalTransitionStyle = .coverVertical

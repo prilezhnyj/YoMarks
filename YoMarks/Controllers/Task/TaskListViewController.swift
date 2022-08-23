@@ -46,7 +46,7 @@ class TaskListViewController: UIViewController {
         newTaskVC.delegate = self
         
         refreshControl.attributedTitle = NSAttributedString(string: "Update tasks")
-        refreshControl.tintColor = ColorSetup.orange()
+        refreshControl.tintColor = ColorSetup.purpleDark()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "User: \(currentUser.email!)", style: .plain, target: self, action: #selector(userInfo))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNewTask))
@@ -142,7 +142,7 @@ extension TaskListViewController {
     }
     
     @objc private func addNewTask() {
-        let vc = createNavigationControllerModalPresent(viewController: newTaskVC)
+        let vc = createNavigationControllerModalPresent(viewController: newTaskVC, nameItem: "", nameImageItem: "")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
