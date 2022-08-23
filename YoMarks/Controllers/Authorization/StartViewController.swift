@@ -64,7 +64,8 @@ extension StartViewController: AuthTransitionProtocol {
     
     func delegatePushTaskVC(for user: User) {
         let taskVC = TaskListViewController(currentUser: user)
-        present(taskVC, animated: true)
+        let taskNavVC = createNavigationController(viewController: taskVC)
+        present(taskNavVC, animated: true)
     }
 }
 

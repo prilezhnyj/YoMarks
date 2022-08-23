@@ -7,7 +7,7 @@
 
 import UIKit
 
-func createNavigationController(viewController vc: UIViewController, nameItem: String, nameImageItem: String) -> UINavigationController {
+func createNavigationController(viewController vc: UIViewController) -> UINavigationController {
     let navigationController = UINavigationController(rootViewController: vc)
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.modalPresentationStyle = .fullScreen

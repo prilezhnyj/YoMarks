@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             switch result {
             case .success(_):
                 let taskVC = TaskListViewController(currentUser: user)
-                let taskNavVC = createNavigationController(viewController: taskVC, nameItem: "Task", nameImageItem: "list.dash")
+                let taskNavVC = createNavigationController(viewController: taskVC)
                 window.rootViewController = taskNavVC
             case .failure(_):
                 window.rootViewController = StartViewController()
